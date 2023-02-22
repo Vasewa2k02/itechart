@@ -1,0 +1,309 @@
+/*Обнуление*/
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+:focus,
+:active {
+  outline: none;
+}
+a:focus,
+a:active {
+  outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+button {
+  cursor: pointer;
+}
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+a,
+a:visited {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+ul li {
+  list-style: none;
+}
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+/*--------------------*/
+
+.header {
+  width: 100%;
+  background: linear-gradient(311.76deg, #d4e7fe -15.24%, #ffffff 78.85%);
+}
+
+.header__container {
+  display: flex;
+  justify-content: center;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  height: 90px;
+  background-color: #fff;
+  border-bottom: 1px solid #e5e5e5;
+  z-index: 1;
+}
+
+.nav__content {
+  display: flex;
+  align-items: center;
+  width: 1440px;
+  height: 90px;
+}
+
+.nav__logo {
+  margin: 8px 0 0 135px;
+}
+
+.nav__menu {
+  justify-content: space-between;
+  margin-left: 72px;
+}
+
+.nav__list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 306px;
+  height: 14px;
+}
+
+.nav__item {
+  display: inline;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  min-width: 90px;
+  background-color: #f1f1f1;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 12px 16px;
+  color: black;
+  text-decoration: none;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.nav__link {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 14px;
+  letter-spacing: 0.01em;
+  color: #656464;
+}
+
+.nav__link:hover {
+  color: #217bf4;
+}
+
+.nav__link-home {
+  font-weight: 600;
+  color: #2b2b39;
+}
+
+.arrow {
+  display: inline-block;
+  transform: rotate(90deg);
+}
+
+.nav__search {
+  display: flex;
+  width: 105px;
+  height: 32px;
+  margin-left: auto;
+  padding-top: 7px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.nav__search-button {
+  margin-right: 10px;
+  background-color: #0000;
+}
+
+.nav__search-input {
+  width: 80px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+  color: #686868;
+  background-color: #0000;
+}
+
+.nav__login-button {
+  width: 123px;
+  height: 50px;
+  margin: 0 135px 0 42px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+  color: #fff;
+  background: #217bf4;
+  box-shadow: 0px 7px 22px -6px rgba(33, 123, 244, 0.34);
+  border-radius: 14px;
+}
+
+.header__body {
+  display: flex;
+  justify-content: center;
+  width: 1440px;
+  height: 656px;
+  margin-top: 90px;
+}
+
+.header__information {
+  width: 515px;
+  height: 366px;
+  margin-top: 125px;
+}
+
+.header__netbook-community-button {
+  width: 177px;
+  height: 36px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 12px;
+  text-align: center;
+  color: #217bf4;
+  background: #217bf410;
+  border-radius: 8px;
+}
+
+.header__text1 {
+  width: 515px;
+  height: 132px;
+  margin-top: 20px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 56px;
+  line-height: 66px;
+  color: #0a093d;
+}
+
+.header__text2 {
+  width: 491px;
+  height: 56px;
+  margin-top: 18px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  color: #656464;
+}
+
+.header__button {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 14px;
+  text-align: center;
+  color: #217bf4ff;
+  background-color: #0000;
+  box-sizing: border-box;
+  border: 1px solid #217bf4;
+  border-radius: 14px;
+}
+
+.header__button:hover,
+.header__netbook-community-button:hover {
+  color: #fff;
+  background: #217bf4;
+  box-shadow: 0px 7px 22px -6px rgba(33, 123, 244, 0.34);
+}
+
+.header__about-more-button {
+  width: 162px;
+  height: 62px;
+  margin: 42px 15px 0 0;
+}
+
+.header__invite-friend-button {
+  width: 167px;
+  height: 62px;
+}
+
+.header__img {
+  margin: 24px 0 0 10px;
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__container">
+        <div class="nav">
+          <div class="nav__content">
+            <div class="nav__logo">
+              <img src="img/logo.svg" alt="logo" />
+            </div>
+            <div class="nav__menu">
+              <ul class="nav__list">
+                <li class="nav__item">
+                  <a href="#" class="nav__link nav__link-home">Home</a>
+                </li>
+                <li class="nav__item">
+                  <div class="dropdown">
+                    <a href="#" class="nav__link nav__link-community"
+                      >Community
+                      <div class="arrow">&rsaquo;</div></a
+                    >
+                    <div class="dropdown-content">
+                      <a href="#" class="nav__link">link1</a>
+                      <a href="#" class="nav__link">link2</a>
+                      <a href="#" class="nav__link">link3</a>
+                    </div>
+                  </div>
+                </li>
+                <li class="nav__item">
+                  <a href="#" class="nav__link">Blog</a>
+                </li>
+                <li class="nav__item">
+                  <a href="#" class="nav__link">Events</a>
+                </li>
+              </ul>
+            </div>
+            <div class="nav__search">
+              <button class="nav__search-button" type="submit">
+                <img src="img/MagnifyingGlass.svg" alt="search" />
+              </button>
+              <input
+                class="nav__search-input"
+                type="text"
+                placeholder="Search Here..."
+              />
+            </div>
+            <input type="button" class="nav__login-button" value="Log in" />
+          </div>
+        </div>
+        <div class="header__body">
+          <div class="header__information">
+            <input
+              type="button"
+              class="header__netbook-community-button"
+              value="Netbook community"
+            />
+            <p class="header__text1">Your Solutions For Community!</p>
+            <p class="header__text2">
+              More than 2 billion people in over countries use socibook to stay
+              in touch with friends & family.
+            </p>
+            <input
+              type="button"
+              class="header__about-more-button header__button"
+              value="About More"
+            />
+            <input
+              type="button"
+              class="header__invite-friend-button header__button"
+              value="Invite Friend"
+              onclick="window.location.href = '#'"
+            />
+          </div>
+          <div class="header__img">
+            <img src="img/Iamge.svg" alt="Iamge" />
+          </div>
+        </div>
+      </div>
+    </header>
+  </body>
+</html>
