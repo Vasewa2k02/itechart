@@ -164,7 +164,8 @@ h6 {
   color: #656464;
 }
 
-.nav__link:hover {
+.nav__link:hover,
+.about-us__link:hover {
   color: #217bf4;
 }
 
@@ -220,6 +221,10 @@ h6 {
   border-radius: 14px;
 }
 
+.nav__login-button:hover {
+  background: #0e0d53;
+}
+
 .header__body {
   display: flex;
   justify-content: center;
@@ -248,7 +253,7 @@ h6 {
   border-radius: 8px;
 }
 
-.header__text1 {
+.header__title-text {
   width: 515px;
   height: 132px;
   margin-top: 20px;
@@ -260,7 +265,7 @@ h6 {
   color: #0a093d;
 }
 
-.header__text2 {
+.header__content-text {
   width: 491px;
   height: 56px;
   margin-top: 18px;
@@ -304,6 +309,98 @@ h6 {
   height: 62px;
 }
 
-.header__img {
+.header__people-img {
   margin: 24px 0 0 10px;
+}
+
+.about-us {
+  display: flex;
+  justify-content: center;
+}
+
+.about-us__container {
+  display: flex;
+  justify-content: space-between;
+  width: 1440px;
+  height: 576px;
+  margin-top: 96px;
+}
+
+.about-us__information {
+  width: 406px;
+  height: 346px;
+  margin: 96.53px 0 0 135px;
+}
+
+.about-us__describe-text {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 18px;
+  color: #217bf4;
+}
+
+.about-us__title-text {
+  margin-top: 10px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 48px;
+  color: #0a093d;
+}
+
+.about-us__content-text {
+  margin-top: 16px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px;
+  color: #656464;
+}
+
+.about-us__links {
+  margin: 36px 0 0 25px;
+}
+
+.abous-us__list .about-us__item {
+  padding: 0 0 10px 5px;
+  list-style-image: url(../img/circle.svg);
+}
+
+.about-us__link {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 18px;
+  color: #171648;
+}
+
+.about-us__media {
+  display: flex;
+  justify-content: space-between;
+  flex-flow: column wrap;
+  width: 564px;
+  height: 508px;
+  margin: 32px 135px 0 0;
+}
+
+.about-us__video {
+  width: 270px;
+  height: 368px;
+  margin-top: 70px;
+  border-radius: 14px;
+}
+
+.about-us__man-img {
+  margin-left: 26px;
+  border-radius: 14px;
+}
+
+.about-us__lan-img {
+  margin: 32px 0 0 26px;
+  border-radius: 14px;
 }
