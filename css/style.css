@@ -80,6 +80,10 @@ h6 {
 
 /*--------------------*/
 
+input[type="button"] {
+  transition: color, background-color 0.6s ease-out;
+}
+
 .header {
   width: 100%;
   background: linear-gradient(311.76deg, #d4e7fe -15.24%, #ffffff 78.85%);
@@ -162,6 +166,7 @@ h6 {
   line-height: 14px;
   letter-spacing: 0.01em;
   color: #656464;
+  transition: color 0.25s ease-out;
 }
 
 .nav__link:hover,
@@ -362,21 +367,22 @@ h6 {
 }
 
 .about-us__links {
-  margin: 36px 0 0 25px;
+  margin-top: 36px;
 }
 
-.abous-us__list .about-us__item {
-  padding: 0 0 10px 5px;
-  list-style-image: url(../img/circle.svg);
+.about-us__item {
+  margin-bottom: 16px;
 }
 
 .about-us__link {
+  margin-left: 8px;
   font-family: "Inter";
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
   line-height: 18px;
   color: #171648;
+  transition: color 0.25s ease-out;
 }
 
 .about-us__media {
