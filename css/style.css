@@ -126,7 +126,8 @@ button {
 }
 
 .information-card,
-.our-archievement__human-img {
+.our-archievement__human-img,
+.human-card {
   transition: box-shadow, border 0.3s ease-out;
 }
 
@@ -694,4 +695,112 @@ button {
   font-size: 16px;
   line-height: 26px;
   color: #656464;
+}
+
+.our-team__container {
+  flex-direction: column;
+  align-items: center;
+  height: 776px;
+  margin-top: 47px;
+}
+
+.our-team__information {
+  margin-top: 84px;
+  text-align: center;
+}
+
+.our-team__title-text {
+  margin-top: 9px;
+}
+
+.our-team__content-text {
+  width: 454px;
+  margin: 18px auto 0 auto;
+}
+
+.switcher {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 474px;
+  height: 72px;
+  background: #217cf410;
+  border-radius: 14px;
+}
+
+.switcher__button {
+  width: 150px;
+  height: 56px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 16px;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: #2f2c4a;
+  opacity: 0.8;
+  background: #0000;
+  border-radius: 14px;
+}
+
+.switcher__button:hover {
+  font-weight: 600;
+}
+
+.switcher__active-button {
+  font-weight: 600;
+  color: #ffffff;
+  background: #217bf4;
+  transition: box-shadow 0.3s ease-out;
+}
+
+.switcher__active-button:hover {
+  box-shadow: 0px 7px 22px -6px rgba(0, 72, 168, 0.34);
+}
+
+.our-team__switcher {
+  margin-top: 38px;
+}
+
+.our-team__cards {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  width: 1170px;
+  height: 316px;
+  margin-top: 44px;
+}
+
+.human-card {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  width: 270px;
+  height: 316px;
+  background: #ffffff;
+  border-radius: 14px;
+  border: 1px solid #e5e5e5;
+}
+
+.human-card:hover {
+  box-shadow: 0px 34px 68px rgba(116, 115, 128, 0.1);
+  border: 1px solid #0000;
+}
+
+.human-card__img {
+  margin-top: 30px;
+}
+
+.human-card__name {
+  margin-top: 30px;
+  font-weight: 600;
+  font-size: 24px;
+  color: #2f2c4a;
+}
+
+.human-card__link {
+  margin-top: 12px;
+  font-size: 16px;
+  line-height: 16px;
 }
