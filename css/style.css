@@ -569,3 +569,102 @@ input[type="button"] {
 .our-archievement__discover-me-button-arrow {
   margin-left: 18px;
 }
+
+.features {
+  background: linear-gradient(
+    0deg,
+    rgba(241, 246, 253, 0) 1.63%,
+    #f1f6fd 20.5%,
+    #f1f6fd 58.57%,
+    #ffffff 100%
+  );
+}
+
+.features__container {
+  flex-direction: column;
+  align-items: center;
+  margin-top: 55px;
+  height: 976px;
+}
+
+.features__information {
+  width: 1440px;
+  margin-top: 60px;
+  text-align: center;
+}
+
+.features__title-text {
+  margin-top: 9px;
+}
+
+.features__content-text {
+  width: 421px;
+  margin: 19px auto 0 auto;
+}
+
+.features__contact-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+  width: 1088px;
+  height: 634px;
+  margin-top: 64px;
+}
+
+.contact-card {
+  display: flex;
+  width: 522px;
+  height: 182px;
+  background-color: #fff;
+  border-radius: 14px;
+  transition: box-shadow 0.3s ease-out;
+}
+
+.contact-card:hover {
+  box-shadow: 14px 22px 52px -12px rgba(127, 127, 127, 0.13);
+}
+
+.contact-card__img {
+  width: 66px;
+  height: 66px;
+  margin: 40px 0 0 40px;
+  border-radius: 24px;
+}
+
+.contact-card__img-members,
+.contact-card__img-custom-module {
+  box-shadow: 0px 10px 22px -2px rgba(109, 171, 255, 0.36);
+}
+.contact-card__img-groups,
+.contact-card__img-list-build {
+  box-shadow: 0px 8px 22px -2px rgba(248, 87, 94, 0.3);
+}
+
+.contact-card__img-forum,
+.contact-card__img-list-scroll {
+  box-shadow: 0px 10px 22px -2px rgba(250, 186, 84, 0.3);
+}
+
+.contact-card__content-text {
+  margin: 46px 0 0 36px;
+}
+
+.contact-card__contact-name {
+  width: 315px;
+  height: 26px;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 26px;
+  color: #2f2c4a;
+}
+
+.contact-card__describe-text {
+  width: 315px;
+  height: 78px;
+  margin-top: 14px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #656464;
+}
