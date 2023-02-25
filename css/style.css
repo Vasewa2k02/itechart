@@ -150,7 +150,7 @@ button {
   height: 90px;
   background-color: #fff;
   border-bottom: 1px solid #e5e5e5;
-  z-index: 1;
+  z-index: 10;
 }
 
 .nav__content {
@@ -803,4 +803,90 @@ button {
   margin-top: 12px;
   font-size: 16px;
   line-height: 16px;
+}
+
+.cta {
+  height: 560px;
+  margin-top: 46px;
+  background: #e5f0fd;
+}
+
+.cta__container {
+  justify-content: space-between;
+}
+
+.cta__information {
+  width: 351px;
+  margin: 122px 0 0 135px;
+}
+
+.cta__title-text {
+  margin-top: 9px;
+  line-height: 52px;
+}
+
+.cta__content-text {
+  width: 341px;
+  margin: 18px 0 36px 0;
+  line-height: 26px;
+}
+
+.cta__app-store-img {
+  border-radius: 6px;
+}
+
+.cta__app-store-img:hover {
+  filter: drop-shadow(0px 0px 22px rgba(178, 188, 208, 0.21));
+}
+
+.cta__play-store-link {
+  margin-left: 15px;
+}
+
+.cta__media {
+  position: relative;
+  width: 440px;
+  margin: 44px 160px 0 0;
+}
+
+.cta__vector-lines {
+  right: 0px;
+}
+
+.cta__mobile {
+  position: absolute;
+  right: 56px;
+  bottom: 0px;
+  border-radius: 50px 50px 0 0;
+  z-index: 1;
+}
+
+.cta__mobile {
+  transition: box-shadow 0.3s ease-out;
+}
+
+.cta__mobile:hover {
+  box-shadow: 0px -20px 50px rgba(44, 44, 44, 0.2);
+}
+
+.cta__red-ellipse {
+  bottom: 81px;
+}
+
+.cta__blue-ellipse {
+  bottom: 0px;
+}
+
+.cta__vector-lines,
+.cta__red-ellipse,
+.cta__blue-ellipse {
+  position: absolute;
+  opacity: 0.8;
+  transition: opacity 0.3s ease-out;
+}
+
+.cta__vector-lines:hover,
+.cta__red-ellipse:hover,
+.cta__blue-ellipse:hover {
+  opacity: 1;
 }
