@@ -15,88 +15,86 @@
   </head>
   <body>
     <header class="header">
-      <div class="header__container">
-        <div class="nav">
-          <div class="nav__content">
-            <div class="nav__logo">
-              <img src="img/logo.svg" alt="logo" />
-            </div>
-            <div class="nav__menu">
-              <ul class="nav__list">
-                <li class="nav__item">
-                  <a href="#" class="nav__link nav__link-home">Home</a>
-                </li>
-                <li class="nav__item">
-                  <div class="dropdown">
-                    <a href="#" class="nav__link"
-                      >Community
-                      <div class="arrow">&rsaquo;</div></a
-                    >
-                    <div class="dropdown-content">
-                      <a href="#" class="nav__link">link1</a>
-                      <a href="#" class="nav__link">link2</a>
-                      <a href="#" class="nav__link">link3</a>
-                    </div>
+      <nav class="nav">
+        <div class="nav__content">
+          <div class="nav__logo">
+            <img src="img/logo.svg" alt="logo" />
+          </div>
+          <div class="nav__menu">
+            <ul class="nav__list">
+              <li class="nav__item">
+                <a href="#" class="nav__link nav__link-home">Home</a>
+              </li>
+              <li class="nav__item">
+                <div class="dropdown">
+                  <a href="#" class="nav__link"
+                    >Community
+                    <div class="arrow">&rsaquo;</div></a
+                  >
+                  <div class="dropdown-content">
+                    <a href="#" class="nav__link">link1</a>
+                    <a href="#" class="nav__link">link2</a>
+                    <a href="#" class="nav__link">link3</a>
                   </div>
-                </li>
-                <li class="nav__item">
-                  <a href="#" class="nav__link">Blog</a>
-                </li>
-                <li class="nav__item">
-                  <a href="#" class="nav__link">Events</a>
-                </li>
-              </ul>
-            </div>
-            <div class="nav__search">
-              <button class="nav__search-button" type="submit">
-                <img src="img/MagnifyingGlass.svg" alt="search" />
-              </button>
-              <input
-                class="nav__search-input"
-                type="text"
-                placeholder="Search Here..."
-              />
-            </div>
-            <input type="button" class="nav__login-button" value="Log in" />
+                </div>
+              </li>
+              <li class="nav__item">
+                <a href="#" class="nav__link">Blog</a>
+              </li>
+              <li class="nav__item">
+                <a href="#" class="nav__link">Events</a>
+              </li>
+            </ul>
           </div>
+          <div class="nav__search">
+            <button class="nav__search-button" type="submit">
+              <img src="img/MagnifyingGlass.svg" alt="search" />
+            </button>
+            <input
+              class="nav__search-input"
+              type="text"
+              placeholder="Search Here..."
+            />
+          </div>
+          <input type="button" class="nav__login-button" value="Log in" />
         </div>
-        <div class="header__body">
-          <div class="header__information">
-            <input
-              type="button"
-              class="header__netbook-community-button"
-              value="Netbook community"
-            />
-            <p class="header__title-text">Your Solutions For Community!</p>
-            <p class="header__content-text">
-              More than 2 billion people in over countries use socibook to stay
-              in touch with friends & family.
-            </p>
-            <input
-              type="button"
-              class="header__about-more-button header__button"
-              value="About More"
-            />
-            <input
-              type="button"
-              class="header__invite-friend-button header__button"
-              value="Invite Friend"
-              onclick="window.location.href = '#'"
-            />
-          </div>
-          <div class="header__people-img">
-            <img src="img/Iamge.svg" alt="Iamge" />
-          </div>
+      </nav>
+      <div class="container header__container">
+        <div class="header__information">
+          <input
+            type="button"
+            class="header__netbook-community-button"
+            value="Netbook community"
+          />
+          <h1 class="header__title-text">Your Solutions For Community!</h1>
+          <p class="header__content-text">
+            More than 2 billion people in over countries use socibook to stay in
+            touch with friends & family.
+          </p>
+          <input
+            type="button"
+            class="header__about-more-button header__button"
+            value="About More"
+          />
+          <input
+            type="button"
+            class="header__invite-friend-button header__button"
+            value="Invite Friend"
+            onclick="window.location.href = '#'"
+          />
+        </div>
+        <div class="header__people-img">
+          <img src="img/Iamge.svg" alt="Iamge" />
         </div>
       </div>
     </header>
     <section class="about-us">
-      <div class="about-us__container">
+      <div class="container about-us__container">
         <div class="about-us__information">
-          <p class="about-us__describe-text">Whats Netboks?</p>
-          <p class="about-us__title-text">
+          <h4 class="about-us__describe-text">Whats Netboks?</h4>
+          <h2 class="about-us__title-text">
             Why Join to Netbook Social Network?
-          </p>
+          </h2>
           <p class="about-us__content-text">
             Recent surveys have indicated that small businesses recognise the
             need they have to connect with consumer.
@@ -134,6 +132,165 @@
             src="./img/about-us__img2.png"
             alt="img2"
           />
+        </div>
+      </div>
+    </section>
+    <section class="our-archievement">
+      <div class="container our-archievement__container">
+        <div class="information-card our-archievement__rating">
+          <div class="information-card__title">
+            <img
+              class="information-card__img"
+              src="./img/Star.svg"
+              alt="star"
+            />
+            4.8 Rating
+          </div>
+          <div class="information-card__describe">
+            <img
+              src="./img/our-achievement-human1.png"
+              alt="our-achievement-human1"
+              class="our-archievement__human-img"
+            />
+            <img
+              src="./img/our-achievement-human2.png"
+              alt="our-achievement-human2"
+              class="our-archievement__human-img our-archievement__center-human"
+            />
+            <img
+              src="./img/our-achievement-human3.png"
+              alt="our-achievement-human3"
+              class="our-archievement__human-img our-archievement__right-human"
+            />
+            <p class="information-card__describe-text">
+              <span style="color: #217bf4; font-weight: 600">+836k </span
+              >Members
+            </p>
+          </div>
+          <p class="information-card__content-text">
+            More than 2 billion we people over countries use socibooks we to
+            stay in touch with friends.
+          </p>
+          <a href="#" class="information-card__link"
+            >Join Our Community
+            <svg
+              width="10"
+              height="10"
+              viewBox="0 0 10 10"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                class="information-card__arrow"
+                d="M1.5625 5H8.4375"
+                stroke="#4A4A56"
+                stroke-width="1.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                class="information-card__arrow"
+                d="M5.625 2.1875L8.4375 5L5.625 7.8125"
+                stroke="#4A4A56"
+                stroke-width="1.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+        </div>
+        <div class="information-card our-archievement__awards">
+          <div class="information-card__title">
+            <img
+              class="information-card__img"
+              src="./img/Trophy.svg"
+              alt="trophy"
+            />
+            Awwwards
+          </div>
+          <div class="information-card__describe">
+            <img
+              class="our-archievement__github-cat"
+              src="./img/github.png"
+              alt="github-cat"
+            />
+            <p
+              class="information-card__describe-text our-achievement__awards-describe-text"
+            >
+              Best of
+              <span style="color: #217bf4; font-weight: 600">2021</span> on
+              Github
+            </p>
+          </div>
+          <p class="information-card__content-text">
+            More than 2 billion we people over countries use socibooks we to
+            stay in touch with friends.
+          </p>
+          <a href="#" class="information-card__link"
+            >Go To Awards
+            <svg
+              width="10"
+              height="10"
+              viewBox="0 0 10 10"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                class="information-card__arrow"
+                d="M1.5625 5H8.4375"
+                stroke="#4A4A56"
+                stroke-width="1.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                class="information-card__arrow"
+                d="M5.625 2.1875L8.4375 5L5.625 7.8125"
+                stroke="#4A4A56"
+                stroke-width="1.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+        </div>
+        <div class="our-archievement__information">
+          <h4 class="our-archievement__describe-text">Our Achievement</h4>
+          <h2 class="our-archievement__title-text">
+            We are Connecting You The Digital Life.
+          </h2>
+          <p class="our-archievement__content-text">
+            The scope the Social Media becomes crucial Is helps the business to
+            directly engage with their needs and wants.
+          </p>
+          <button class="our-archievement__discover-me-button">
+            Discover me
+            <svg
+              class="our-archievement__discover-me-button-arrow"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                class="our-archievement__discover-me-button-arrow"
+                d="M2.5 8H13.5"
+                stroke="white"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                class="our-archievement__discover-me-button-arrow"
+                d="M9 3.5L13.5 8L9 12.5"
+                stroke="white"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
         </div>
       </div>
     </section>
