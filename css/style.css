@@ -655,7 +655,6 @@ input[type="button"] {
   height: 26px;
   font-weight: 600;
   font-size: 24px;
-  line-height: 26px;
   color: #2f2c4a;
 }
 
@@ -663,8 +662,5 @@ input[type="button"] {
   width: 315px;
   height: 78px;
   margin-top: 14px;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 26px;
   color: #656464;
 }
