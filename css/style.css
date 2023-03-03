@@ -467,12 +467,6 @@ input[type="button"] {
   margin: 33px 0 0 44px;
 }
 
-.information-card__describe-text {
-  font-weight: 600;
-  line-height: 18px;
-  letter-spacing: -0.02em;
-}
-
 .information-card__content-text {
   width: 274px;
   height: 78px;
@@ -566,10 +560,6 @@ input[type="button"] {
   margin-top: 38px;
   font-family: "Inter";
   font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 14px;
-  letter-spacing: -0.02em;
   text-align: center;
   color: #ffffff;
   background: #217bf4;
