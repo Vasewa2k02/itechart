@@ -283,7 +283,7 @@ input[type="button"] {
 }
 
 .header__container {
-  height: 656px;
+  min-height: 656px;
   margin-top: 90px;
 }
 
@@ -358,7 +358,7 @@ input[type="button"] {
 
 .about-us__container {
   justify-content: space-between;
-  height: 576px;
+  min-height: 576px;
   margin-top: 96px;
 }
 
@@ -424,7 +424,7 @@ input[type="button"] {
 .our-archievement__container {
   flex-direction: row;
   align-items: center;
-  height: 490px;
+  min-height: 490px;
   margin-top: 21px;
 }
 
@@ -584,7 +584,6 @@ input[type="button"] {
   flex-direction: column;
   align-items: center;
   margin-top: 55px;
-  height: 976px;
 }
 
 .features__information {
@@ -608,7 +607,7 @@ input[type="button"] {
   justify-content: space-between;
   align-content: space-between;
   width: 1088px;
-  height: 634px;
+  min-height: 634px;
   margin-top: 64px;
 }
 
