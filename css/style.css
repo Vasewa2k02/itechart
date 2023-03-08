@@ -668,12 +668,10 @@ input[type="button"] {
 .our-team__container {
   flex-direction: column;
   align-items: center;
-  height: 776px;
-  margin-top: 47px;
+  margin-top: 210px;
 }
 
 .our-team__information {
-  margin-top: 84px;
   text-align: center;
 }
 
@@ -703,9 +701,7 @@ input[type="button"] {
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
-  line-height: 16px;
   text-align: center;
-  letter-spacing: 0.01em;
   color: #2f2c4a;
   opacity: 0.8;
   background: #0000;
@@ -768,7 +764,5 @@ input[type="button"] {
 }
 
 .human-card__link {
-  margin-top: 12px;
-  font-size: 16px;
-  line-height: 16px;
+  margin-top: 10px;
 }
