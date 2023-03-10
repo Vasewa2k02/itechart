@@ -154,6 +154,47 @@ button {
   height: 90px;
 }
 
+.burger-menu {
+  display: none;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.burger-menu span {
+  width: 20px;
+  height: 2px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #222222;
+  transition: all 0.5s;
+}
+
+.burger-menu span:nth-of-type(2) {
+  top: calc(50% - 5px);
+}
+
+.burger-menu span:nth-of-type(3) {
+  top: calc(50% + 5px);
+}
+
+.burger-menu.active span:nth-of-type(1) {
+  display: none;
+}
+
+.burger-menu.active span:nth-of-type(2) {
+  top: 50%;
+  transform: translate(-50%, 0%) rotate(45deg);
+}
+
+.burger-menu.active span:nth-of-type(3) {
+  top: 50%;
+  transform: translate(-50%, 0%) rotate(-45deg);
+}
+
 .nav__menu {
   display: flex;
   justify-content: space-between;
@@ -514,7 +555,6 @@ button {
 
 .our-archievement__information {
   max-width: 381px;
-  min-height: 322px;
   margin-left: 10%;
 }
 
@@ -592,7 +632,6 @@ button {
 .contact-card {
   display: flex;
   width: 48%;
-  min-height: 182px;
   padding: 40px 40px 18px 40px;
   background-color: #fff;
   border-radius: 14px;
@@ -859,7 +898,6 @@ button {
   flex-direction: row;
   justify-content: space-between;
   width: 80%;
-  max-height: 460px;
   margin-top: 80px;
 }
 
@@ -1065,7 +1103,6 @@ button {
   display: flex;
   justify-content: space-between;
   width: 168px;
-  height: 36px;
 }
 
 .social-network-icon circle {
@@ -1080,6 +1117,10 @@ button {
   .container,
   .nav__content {
     max-width: 1170px;
+  }
+
+  .blog__container {
+    max-width: 1440px;
   }
 }
 
@@ -1121,7 +1162,6 @@ button {
     align-items: center;
     order: -1;
     max-width: 600px;
-    min-height: 280px;
     margin: 30px;
     text-align: center;
   }
@@ -1132,7 +1172,6 @@ button {
 
   .contact-card {
     width: 600px;
-    min-height: 170px;
     margin-top: 20px;
   }
 
@@ -1264,7 +1303,6 @@ button {
   .our-archievement__information {
     margin-top: 80px;
     max-width: 480px;
-    min-height: 280px;
   }
 
   .information-card {
@@ -1315,7 +1353,6 @@ button {
 
   .contact-card {
     width: 100%;
-    height: 180px;
   }
 
   .contact-card__contact-name {
@@ -1381,7 +1418,7 @@ button {
   }
 
   .cta__information {
-    width: 500px;
+    width: 380px;
     margin-top: 0;
     text-align: center;
   }
@@ -1484,5 +1521,147 @@ button {
 
   .footer__container {
     height: 74px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .burger-menu {
+    display: flex;
+  }
+
+  .nav__content {
+    width: 90%;
+  }
+
+  .nav__menu {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 110px;
+    height: 140px;
+    margin-left: 10px;
+    padding: 10px;
+    background: #f1f1f1;
+    transform: translateY(-200px);
+    transition: transform 0.5s;
+    border-radius: 10px;
+  }
+
+  .header__information {
+    width: 380px;
+  }
+
+  .nav__menu.active {
+    transform: translateY(50px);
+  }
+
+  .about-us__media {
+    flex-direction: column;
+    width: 270px;
+    height: auto;
+  }
+
+  .about-us__video {
+    width: 100%;
+    height: 420px;
+  }
+
+  .about-us__man-img,
+  .about-us__lan-img {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .nav__search {
+    display: flex;
+    justify-content: space-around;
+    width: 105px;
+    height: 32px;
+    margin-left: auto;
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  .nav__login-button {
+    width: 80px;
+    height: 40px;
+    margin-left: 20px;
+    font-size: 10px;
+  }
+
+  .our-archievement__container {
+    flex-direction: column;
+    align-content: space-around;
+    margin-top: 80px;
+  }
+
+  .our-archievement__information {
+    margin: 0;
+  }
+
+  .information-card {
+    min-height: auto;
+    height: auto;
+    margin-top: 20px;
+  }
+
+  .contact-card {
+    padding: 20px;
+  }
+
+  .contact-card__img {
+    display: none;
+  }
+
+  .contact-card__content-text {
+    margin: 0;
+  }
+
+  .our-team__cards {
+    justify-content: center;
+    width: 380px;
+    height: 1200px;
+  }
+
+  .blog__container {
+    margin-top: 56px;
+  }
+
+  .blog__news-blogs {
+    flex-direction: column;
+    align-items: center;
+    align-content: space-around;
+    width: 380px;
+    margin-top: 0px;
+  }
+
+  .news-blog {
+    width: 80%;
+    margin-top: 40px;
+  }
+
+  .menu__container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .menu__links {
+    width: 100%;
+  }
+
+  .footer__name {
+    width: 140px;
+    font-size: 12px;
+  }
+
+  .footer__logo {
+    display: none;
+  }
+
+  .footer__social-networks {
+    width: 120px;
+  }
+
+  .footer__link svg {
+    height: 24px;
+    width: 24px;
   }
 }
