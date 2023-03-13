@@ -281,7 +281,6 @@ button {
   height: 50px;
   margin-left: 3.5%;
   font-weight: 600;
-  font-size: 12px;
   text-align: center;
   color: #fff;
   background: #217bf4;
@@ -334,8 +333,6 @@ button {
   width: 32%;
   height: 62px;
   font-weight: 500;
-  font-size: 14px;
-  line-height: 14px;
   text-align: center;
   color: #217bf4ff;
   background-color: #0000;
@@ -411,11 +408,7 @@ button {
   border-radius: 14px;
 }
 
-.about-us__man-img {
-  width: 48%;
-  border-radius: 14px;
-}
-
+.about-us__man-img,
 .about-us__lan-img {
   width: 48%;
   border-radius: 14px;
@@ -429,9 +422,7 @@ button {
 }
 
 .information-card {
-  max-width: 336px;
   min-width: 270px;
-  min-height: 340px;
   padding: 42px 18px 40px 44px;
   box-sizing: border-box;
   background: #ffffff;
@@ -472,7 +463,6 @@ button {
 }
 
 .information-card__content-text {
-  max-width: 274px;
   min-height: 78px;
   margin-top: 40px;
   line-height: 26px;
@@ -486,6 +476,18 @@ button {
   font-weight: 500;
   font-size: 16px;
   line-height: 16px;
+  color: #4a4a56;
+  transition: color 0.3s ease-out;
+}
+
+.information-card__arrow {
+  transition: stroke 0.3s ease-out;
+}
+
+.information-card__link:hover,
+.information-card__link:hover svg path {
+  color: #217bf4;
+  stroke: #217bf4;
 }
 
 .our-archievement__human-img {
@@ -510,21 +512,6 @@ button {
   right: 12px;
 }
 
-.our-archievement__join-link {
-  color: #217bf4;
-}
-
-.our-archievement__join-link,
-.our-archievement__join-arrow {
-  transition: filter 0.3s ease-out;
-}
-
-.our-archievement__join-link:hover,
-.our-archievement__join-arrow:hover {
-  filter: invert(6%) sepia(100%) saturate(3811%) hue-rotate(242deg)
-    brightness(37%) contrast(103%);
-}
-
 .our-archievement__awards {
   margin-left: 24px;
 }
@@ -538,23 +525,8 @@ button {
   border-radius: 12px;
 }
 
-.our-archievement__go-to-awards-link {
-  color: #4a4a56;
-}
-
-.our-archievement__go-to-awards-arrow,
-.our-archievement__go-to-awards-link {
-  transition: filter 0.3s ease-out;
-}
-
-.our-archievement__go-to-awards-arrow:hover,
-.our-archievement__go-to-awards-link:hover {
-  filter: invert(35%) sepia(52%) saturate(3080%) hue-rotate(203deg)
-    brightness(99%) contrast(93%);
-}
-
 .our-archievement__information {
-  max-width: 381px;
+  width: 80%;
   margin-left: 10%;
 }
 
@@ -574,10 +546,6 @@ button {
   height: 58px;
   margin-top: 38px;
   font-weight: 500;
-  font-size: 14px;
-  line-height: 14px;
-  letter-spacing: -0.02em;
-  text-align: center;
   color: #ffffff;
   background: #217bf4;
   border-radius: 14px;
@@ -720,7 +688,6 @@ button {
   font-size: 16px;
   line-height: 16px;
   text-align: center;
-  letter-spacing: 0.01em;
   color: #2f2c4a;
   opacity: 0.8;
   background: #0000;
@@ -931,21 +898,20 @@ button {
 
 .news-blog__continue-link {
   margin: 24px 0 0 19%;
-  font-weight: 400;
   font-size: 16px;
   line-height: 16px;
   color: #656464;
+  transition: color 0.3s ease-out;
 }
 
-.news-blog__continue-link,
 .news-blog__continue-arrow {
-  transition: filter 0.3s ease;
+  transition: stroke 0.3s ease-out;
 }
 
 .news-blog__continue-link:hover,
-.news-blog__continue-arrow:hover {
-  filter: invert(35%) sepia(52%) saturate(3080%) hue-rotate(203deg)
-    brightness(99%) contrast(93%);
+.news-blog__continue-link:hover svg path {
+  color: #217bf4;
+  stroke: #217bf4;
 }
 
 .union {
@@ -1047,16 +1013,12 @@ button {
   width: 48%;
   height: 12px;
   margin: 0 24px;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 12px;
-  letter-spacing: 0.0125em;
   color: #717179;
   background: #0000;
 }
 
 .menu__subscribe-button {
-  width: 126px;
+  width: 120px;
   height: 48px;
   font-weight: 500;
   font-size: 16px;
