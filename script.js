@@ -38,34 +38,44 @@ const notes = [
   },
 ];
 
-const notesView = notes.map((note) => {
-  return { id: note.id, title: note.title };
-});
-console.log(notesView);
+Array.prototype.notesView = function () {
+  return this.map((note) => {
+    return { id: note.id, title: note.title };
+  });
+};
+
+console.log(notes.notesView());
 
 // Task 1.2
 console.log("Task 1.2");
 
-const markedNotes = notes.filter((note) => note.isMarked);
-console.log(markedNotes);
+Array.prototype.filterByProperty = function (property, value) {
+  return this.filter((note) => note[property] === value);
+};
+
+console.log(notes.filterByProperty("isMarked", true));
 
 // Task 1.3
 console.log("Task 1.3");
 
-const pagesCount = notes.reduce((sum, note) => sum + note.pagesCount, 0);
-console.log(`Total number of pages ${pagesCount}`);
+Array.prototype.pagesCount = function () {
+  return this.reduce((sum, note) => sum + note.pagesCount, 0);
+};
+
+console.log(`Total number of pages ${notes.pagesCount()}`);
 
 // Task 1.4
 console.log("Task 1.4");
 
 const testArray = [1, 1, 1, 2, 2, 3, 4, 4, 5, 5, 5, 5];
 
-const getUnique = (arr) => {
-  return arr
-    .sort()
-    .filter((item) => arr.indexOf(item) === arr.lastIndexOf(item));
+Array.prototype.getUniqueValues = function () {
+  return this.sort().filter((item) => {
+    return this.indexOf(item) === this.lastIndexOf(item);
+  });
 };
-console.log(getUnique(testArray));
+
+console.log(testArray.getUniqueValues());
 
 // Task 1.5
 console.log("Task 1.5");
@@ -89,9 +99,11 @@ const videos = [
   },
 ];
 
-const videosMap = videos.reduce((acc, video) => {
-  acc[video.id] = video.title;
-  return acc;
-}, {});
+Array.prototype.convertArrayToObject = function () {
+  return this.reduce((acc, video) => {
+    acc[video.id] = video.title;
+    return acc;
+  }, {});
+};
 
-console.log(videosMap);
+console.log(videos.convertArrayToObject());
