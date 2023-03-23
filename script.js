@@ -38,44 +38,65 @@ const notes = [
   },
 ];
 
-Array.prototype.notesView = function () {
-  return this.map((note) => {
-    return { id: note.id, title: note.title };
-  });
+Array.prototype.map = function (callback) {
+  const newArray = [];
+  for (let i = 0; i < this.length; i++) {
+    newArray.push(callback(this[i], i, this));
+  }
+  return newArray;
 };
 
-console.log(notes.notesView());
+const notesView = notes.map((note) => {
+  return { id: note.id, title: note.title };
+});
+console.log(notesView);
 
 // Task 1.2
 console.log("Task 1.2");
 
-Array.prototype.filterByProperty = function (property, value) {
-  return this.filter((note) => note[property] === value);
+Array.prototype.filter = function (callback) {
+  const newArray = [];
+  for (let i = 0; i < this.length; i++) {
+    if (callback(this[i], i, this)) {
+      newArray.push(this[i]);
+    }
+  }
+  return newArray;
 };
 
-console.log(notes.filterByProperty("isMarked", true));
+const markedNotes = notes.filter((note) => note.isMarked === true);
+console.log(markedNotes);
 
 // Task 1.3
 console.log("Task 1.3");
 
-Array.prototype.pagesCount = function () {
-  return this.reduce((sum, note) => sum + note.pagesCount, 0);
+Array.prototype.reduce = function (callback, initialValue) {
+  let accumulator = initialValue !== undefined ? initialValue : array[0];
+  const startIndex = initialValue !== undefined ? 0 : 1;
+  for (let i = startIndex; i < this.length; i++) {
+    accumulator = callback(accumulator, this[i], i, this);
+  }
+  return accumulator;
 };
 
-console.log(`Total number of pages ${notes.pagesCount()}`);
+const pagesCount = notes.reduce((sum, note) => sum + note.pagesCount, 0);
+console.log(`Total number of pages ${pagesCount}`);
 
 // Task 1.4
 console.log("Task 1.4");
 
 const testArray = [1, 1, 1, 2, 2, 3, 4, 4, 5, 5, 5, 5];
 
-Array.prototype.getUniqueValues = function () {
-  return this.sort().filter((item) => {
-    return this.indexOf(item) === this.lastIndexOf(item);
-  });
-};
+const uniqueValues = testArray.reduce((acc, item, index) => {
+  for (let i = 0; i < testArray.length; i++) {
+    if (testArray[i] === item && index !== i) {
+      return acc;
+    }
+  }
+  return [...acc, item];
+}, []);
 
-console.log(testArray.getUniqueValues());
+console.log(uniqueValues);
 
 // Task 1.5
 console.log("Task 1.5");
@@ -99,11 +120,9 @@ const videos = [
   },
 ];
 
-Array.prototype.convertArrayToObject = function () {
-  return this.reduce((acc, video) => {
-    acc[video.id] = video.title;
-    return acc;
-  }, {});
-};
+const videoObject = videos.reduce((acc, video) => {
+  acc[video.id] = video.title;
+  return acc;
+}, {});
 
-console.log(videos.convertArrayToObject());
+console.log(videoObject);
