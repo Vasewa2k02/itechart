@@ -40,15 +40,15 @@ const notes = [
 
 Array.prototype.map = function (callback) {
   const newArray = [];
+
   for (let i = 0; i < this.length; i++) {
     newArray.push(callback(this[i], i, this));
   }
+
   return newArray;
 };
 
-const notesView = notes.map((note) => {
-  return { id: note.id, title: note.title };
-});
+const notesView = notes.map(({ id, title }) => ({ id, title }));
 console.log(notesView);
 
 // Task 1.2
@@ -56,26 +56,30 @@ console.log("Task 1.2");
 
 Array.prototype.filter = function (callback) {
   const newArray = [];
+
   for (let i = 0; i < this.length; i++) {
     if (callback(this[i], i, this)) {
       newArray.push(this[i]);
     }
   }
+
   return newArray;
 };
 
-const markedNotes = notes.filter((note) => note.isMarked === true);
+const markedNotes = notes.filter(({ isMarked }) => !!isMarked);
 console.log(markedNotes);
 
 // Task 1.3
 console.log("Task 1.3");
 
 Array.prototype.reduce = function (callback, initialValue) {
-  let accumulator = initialValue !== undefined ? initialValue : array[0];
-  const startIndex = initialValue !== undefined ? 0 : 1;
+  const startIndex = initialValue === undefined ? 1 : 0;
+  let accumulator = initialValue === undefined ? array[0] : initialValue;
+
   for (let i = startIndex; i < this.length; i++) {
     accumulator = callback(accumulator, this[i], i, this);
   }
+
   return accumulator;
 };
 
@@ -93,6 +97,7 @@ const uniqueValues = testArray.reduce((acc, item, index) => {
       return acc;
     }
   }
+
   return [...acc, item];
 }, []);
 
@@ -120,9 +125,9 @@ const videos = [
   },
 ];
 
-const videoObject = videos.reduce((acc, video) => {
-  acc[video.id] = video.title;
-  return acc;
-}, {});
+const videoObject = videos.reduce(
+  (acc, { id, title }) => ({ ...acc, [id]: title }),
+  {}
+);
 
 console.log(videoObject);
