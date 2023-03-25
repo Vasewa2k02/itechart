@@ -66,7 +66,7 @@ Array.prototype.filter = function (callback) {
   return newArray;
 };
 
-const markedNotes = notes.filter(({ isMarked }) => !!isMarked);
+const markedNotes = notes.filter(({ isMarked }) => isMarked);
 console.log(markedNotes);
 
 // Task 1.3
