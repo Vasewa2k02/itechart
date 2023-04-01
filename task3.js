@@ -30,27 +30,25 @@ const downloads = [
   },
 ];
 
-function fillTable(tableClassName) {
-  const table = document.getElementsByClassName(tableClassName)[0];
-
-  table.innerHTML = `<tr><th>ID</th><th>Title</th><th>Status</th></tr>`;
-  table.innerHTML += downloads
-    .map(({ id, title, status }) => {
-      return `<tr><td>${id}</td><td>${title}</td><td>${status}</td></tr>`;
-    })
-    .join("");
-
-  return table;
+function fillTable(tableClassName, data) {
+  document.querySelector(tableClassName).innerHTML =
+    `<tr><th>ID</th><th>Title</th><th>Status</th></tr>` +
+    data.reduce(
+      (result, { id, title, status }) =>
+        result + `<tr><td>${id}</td><td>${title}</td><td>${status}</td></tr>`,
+      ""
+    );
 }
 
-const table = fillTable("downloads");
+fillTable(".downloads", downloads);
 
 function checkStatus() {
   console.log("Check started");
 
-  for (let i = 1; i < table.rows.length; i++) {
-    if (table.rows[i].cells[2].textContent === "Pending") {
-      table.rows[i].cells[2].textContent = "Done";
+  for (let i = 0; i < downloads.length; i++) {
+    if (downloads[i].status === "Pending") {
+      downloads[i].status = "Done";
+      fillTable(".downloads", downloads);
       return;
     }
   }
@@ -58,33 +56,34 @@ function checkStatus() {
   clearInterval(intervalId);
 }
 
+const timeBeforeCheck = 3000;
+const timeBetweenChecks = 5000;
 let intervalId;
 
-document
-  .getElementsByClassName("check-status")[0]
-  .addEventListener("click", () => {
-    setTimeout(() => {
-      checkStatus();
-      intervalId = setInterval(checkStatus, 5000);
-    }, 3000);
-  });
+document.querySelector(".check-status").addEventListener("click", () => {
+  setTimeout(() => {
+    checkStatus();
+    intervalId = setInterval(checkStatus, timeBetweenChecks);
+  }, timeBeforeCheck);
+});
 
 // Task 3.2
 
-const leftField = document.getElementsByClassName("leftField")[0];
-const rightField = document.getElementsByClassName("rightField")[0];
+const leftField = document.querySelector(".leftField");
+const rightField = document.querySelector(".rightField");
+const timeToSync = 1000;
 let timeoutId;
 
 leftField.addEventListener("input", () => {
   clearTimeout(timeoutId);
   timeoutId = setTimeout(() => {
     rightField.value = leftField.value;
-  }, 1000);
+  }, timeToSync);
 });
 
 rightField.addEventListener("input", () => {
   clearTimeout(timeoutId);
   timeoutId = setTimeout(() => {
     leftField.value = rightField.value;
-  }, 1000);
+  }, timeToSync);
 });
