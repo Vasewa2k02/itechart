@@ -56,34 +56,34 @@ function checkStatus() {
   clearInterval(intervalId);
 }
 
-const timeBeforeCheck = 3000;
-const timeBetweenChecks = 5000;
+const TIME_BEFORE_CHECK = 3000;
+const TIME_BETWEEN_CHCKES = 5000;
 let intervalId;
 
 document.querySelector(".check-status").addEventListener("click", () => {
   setTimeout(() => {
     checkStatus();
-    intervalId = setInterval(checkStatus, timeBetweenChecks);
-  }, timeBeforeCheck);
+    intervalId = setInterval(checkStatus, TIME_BETWEEN_CHCKES);
+  }, TIME_BEFORE_CHECK);
 });
 
 // Task 3.2
 
 const leftField = document.querySelector(".leftField");
 const rightField = document.querySelector(".rightField");
-const timeToSync = 1000;
+const TIME_TO_SYNC = 1000;
 let timeoutId;
 
 leftField.addEventListener("input", () => {
   clearTimeout(timeoutId);
   timeoutId = setTimeout(() => {
     rightField.value = leftField.value;
-  }, timeToSync);
+  }, TIME_TO_SYNC);
 });
 
 rightField.addEventListener("input", () => {
   clearTimeout(timeoutId);
   timeoutId = setTimeout(() => {
     leftField.value = rightField.value;
-  }, timeToSync);
+  }, TIME_TO_SYNC);
 });
