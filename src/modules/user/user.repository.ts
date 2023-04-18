@@ -1,19 +1,19 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { Permission } from 'src/entities/permission.entity';
+
 import { Role } from 'src/entities/role.entity';
+
 import { CreateUserDto } from './dto/create-user.dto';
+import { User } from './entities/user.entity';
 import { IUser } from './interfaces/user.interface';
 import { UserResponse } from './response/user.response';
 
 @Injectable()
 export class UserRepository {
   constructor(
-    @InjectModel('User') private readonly userModel: Model<IUser>,
-    @InjectModel('Permission')
-    private readonly permissionModel: Model<Permission>,
-    @InjectModel('Role') private readonly roleModel: Model<Role>,
+    @InjectModel(User.name) private userModel: Model<IUser>,
+    @InjectModel(Role.name) private roleModel: Model<Role>,
   ) {}
 
   public async createUser(
@@ -22,18 +22,16 @@ export class UserRepository {
   ): Promise<void> {
     const { role, ...createUserDtoWithoutRole } = createUserDto;
 
-    const roleEntity = await this.roleModel.findOne({
-      title: role.toUpperCase(),
-    });
-
     const user = await this.userModel.create({
       id,
-      role: roleEntity,
+      role: await this.roleModel.findOne({ title: role.toUpperCase() }),
       ...createUserDtoWithoutRole,
     });
 
-    roleEntity?.users.push(user);
-    await roleEntity?.save();
+    await this.roleModel.findOneAndUpdate(
+      { title: role.toUpperCase() },
+      { $push: { users: user } },
+    );
   }
 
   public async getUserById(id: string): Promise<UserResponse | null> {

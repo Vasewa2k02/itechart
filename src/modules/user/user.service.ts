@@ -1,26 +1,31 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { ConflictException, Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { CreateUserDto } from './dto/create-user.dto';
-import { UserRepository } from './user.repository';
 import { v4 } from 'uuid';
 import * as bcrypt from 'bcrypt';
+
+import { SALT } from 'src/common/consts';
+
 import { IUser } from './interfaces/user.interface';
 import { UserResponse } from './response/user.response';
+import { CreateUserDto } from './dto/create-user.dto';
+import { UserRepository } from './user.repository';
 
 @Injectable()
 export class UserService {
   constructor(
-    private readonly userRepository: UserRepository,
-    private readonly configService: ConfigService,
+    private userRepository: UserRepository,
+    private configService: ConfigService,
   ) {}
   public async create(createUserDto: CreateUserDto): Promise<void> {
-    if (await this.userRepository.getUserByEmail(createUserDto.email)) {
-      throw new HttpException('User already exists', HttpStatus.CONFLICT);
+    const user = await this.userRepository.getUserByEmail(createUserDto.email);
+
+    if (user) {
+      throw new ConflictException('User already exists');
     }
 
     createUserDto.password = await bcrypt.hash(
       createUserDto.password,
-      +this.configService.get('SALT'),
+      Number(this.configService.get(SALT)),
     );
 
     await this.userRepository.createUser(v4(), createUserDto);

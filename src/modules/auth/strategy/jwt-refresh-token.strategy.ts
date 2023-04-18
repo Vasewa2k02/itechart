@@ -4,18 +4,23 @@ import { PassportStrategy } from '@nestjs/passport';
 import { Request } from 'express';
 import { Strategy, ExtractJwt } from 'passport-jwt';
 
-import { UserResponse } from '../../user/response/user.response';
+import {
+  JWT_REFRESH_TOKEN_GUARD,
+  JWT_REFRESH_TOKEN_SECRET,
+} from 'src/common/consts';
+import { UserResponse } from 'src/modules/user/response/user.response';
+
 import { AuthService } from '../auth.service';
 import TokenPayload from '../interface/token-payload.interface';
 
 @Injectable()
 export class JwtRefreshTokenStrategy extends PassportStrategy(
   Strategy,
-  'jwt-refresh-token',
+  JWT_REFRESH_TOKEN_GUARD,
 ) {
   constructor(
-    readonly configService: ConfigService,
-    private readonly authService: AuthService,
+    private configService: ConfigService,
+    private authService: AuthService,
   ) {
     super({
       jwtFromRequest: ExtractJwt.fromExtractors([
@@ -23,7 +28,7 @@ export class JwtRefreshTokenStrategy extends PassportStrategy(
           return request?.cookies?.refreshToken;
         },
       ]),
-      secretOrKey: configService.get('JWT_REFRESH_TOKEN_SECRET'),
+      secretOrKey: configService.get(JWT_REFRESH_TOKEN_SECRET),
       passReqToCallback: true,
     });
   }

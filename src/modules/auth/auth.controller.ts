@@ -9,8 +9,9 @@ import {
 } from '@nestjs/common';
 import { ApiOkResponse, ApiTags } from '@nestjs/swagger';
 
-import RequestWithUser from './interface/request-with-user.interface';
 import { swaggerType } from 'src/helpers/swagger/utils';
+
+import RequestWithUser from './interface/request-with-user.interface';
 import { AuthService } from './auth.service';
 import { UserRegistrationDto } from './dto/user-registration.dto';
 import JwtRefreshGuard from './guard/jwt-refresh.guard';
@@ -21,15 +22,13 @@ import { UserLoginResponse } from './response/user-login.reponse';
 @ApiTags('auth')
 @Controller('auth')
 export class AuthController {
-  constructor(private readonly authService: AuthService) {}
+  constructor(private authService: AuthService) {}
 
   @ApiOkResponse()
   @HttpCode(HttpStatus.OK)
   @Post('sign-up')
-  public registration(
-    @Body() registrationDto: UserRegistrationDto,
-  ): Promise<void> {
-    return this.authService.registration(registrationDto);
+  public register(@Body() registrationDto: UserRegistrationDto): Promise<void> {
+    return this.authService.register(registrationDto);
   }
 
   @ApiOkResponse(swaggerType(UserLoginResponse))
@@ -41,8 +40,8 @@ export class AuthController {
   }
 
   @ApiOkResponse(swaggerType(AccessTokenResponse))
-  @UseGuards(JwtRefreshGuard)
   @HttpCode(HttpStatus.OK)
+  @UseGuards(JwtRefreshGuard)
   @Post('refresh')
   public refresh(@Req() req: RequestWithUser): Promise<AccessTokenResponse> {
     return this.authService.refresh(req);

@@ -9,7 +9,7 @@ import { UserModule } from 'src/modules/user/user.module';
 import { LocalStrategy } from './strategy/local.strategy';
 import { JwtRefreshTokenStrategy } from './strategy/jwt-refresh-token.strategy';
 import { JwtStrategy } from './strategy/jwt.strategy';
-import { SessionModule } from 'src/modules/session/session.module';
+import { SessionModule } from '../session/session.module';
 
 @Module({
   controllers: [AuthController],

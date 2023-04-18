@@ -1,38 +1,48 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import {
+  BadRequestException,
+  ForbiddenException,
+  Injectable,
+} from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
-
 import * as bcrypt from 'bcrypt';
 import * as cookie from 'cookie';
 
-import { SessionService } from '../session/session.service';
-import { UserResponse } from '../user/response/user.response';
-import { UserService } from '../user/user.service';
+import {
+  JWT_ACCESS_TOKEN_EXPIRATION_TIME,
+  JWT_ACCESS_TOKEN_SECRET,
+  JWT_REFRESH_TOKEN_EXPIRATION_TIME,
+  JWT_REFRESH_TOKEN_SECRET,
+  REFRESH_TOKEN_COOKIE,
+} from 'src/common/consts';
+
 import { UserRegistrationDto } from './dto/user-registration.dto';
 import CookieWithRefreshToken from './interface/cookie-with-refresh-token.interface';
 import RequestWithUser from './interface/request-with-user.interface';
 import TokenPayload from './interface/token-payload.interface';
 import { AccessTokenResponse } from './response/access-token.response';
 import { UserLoginResponse } from './response/user-login.reponse';
+import { SessionService } from '../session/session.service';
+import { UserResponse } from '../user/response/user.response';
+import { UserService } from '../user/user.service';
 
 @Injectable()
 export class AuthService {
   constructor(
-    private readonly userService: UserService,
-    private readonly jwtService: JwtService,
-    private readonly sessionService: SessionService,
-    private readonly configService: ConfigService,
+    private userService: UserService,
+    private jwtService: JwtService,
+    private sessionService: SessionService,
+    private configService: ConfigService,
   ) {}
 
   public async verifyPassword(
     enteredPassword: string,
     password: string,
   ): Promise<void> {
-    if (!(await bcrypt.compare(enteredPassword, password))) {
-      throw new HttpException(
-        'Wrong credentials provided',
-        HttpStatus.BAD_REQUEST,
-      );
+    const isPasswordVerified = await bcrypt.compare(enteredPassword, password);
+
+    if (!isPasswordVerified) {
+      throw new BadRequestException('Wrong credentials provided');
     }
   }
 
@@ -44,26 +54,29 @@ export class AuthService {
       const user = await this.userService.getUserByEmail(email);
 
       if (user === null) {
-        throw new HttpException('User doesn`t exist', HttpStatus.BAD_REQUEST);
+        throw new BadRequestException('User doesn`t exist');
       }
 
       await this.verifyPassword(plainTextPassword, user.password);
 
       return user;
-    } catch (err) {
-      throw new HttpException(err.message, HttpStatus.BAD_REQUEST);
+    } catch (error) {
+      throw new BadRequestException(error.message);
     }
   }
 
-  public async registration(
-    registrationDto: UserRegistrationDto,
-  ): Promise<void> {
+  public async register(registrationDto: UserRegistrationDto): Promise<void> {
     await this.userService.create(registrationDto);
   }
 
   public async login(req: RequestWithUser): Promise<UserLoginResponse> {
-    const accessToken = this.getAccessJwtToken(req.user.id);
     const user = await this.userService.getUserById(req.user.id);
+
+    if (user === null) {
+      throw new BadRequestException('User doesn`t exist');
+    }
+
+    const accessToken = this.getAccessJwtToken(req.user.id);
     const { refreshTokenCookie, token: refreshToken } =
       this.getCookieWithJwtRefreshToken(req.user.id);
 
@@ -71,10 +84,6 @@ export class AuthService {
       req.user.id,
       refreshToken,
     );
-
-    if (user === null) {
-      throw new HttpException('User doesn`t exist', HttpStatus.BAD_REQUEST);
-    }
 
     req.res?.setHeader('Set-Cookie', refreshTokenCookie);
 
@@ -89,10 +98,8 @@ export class AuthService {
     const payload: TokenPayload = { userId };
 
     const token = this.jwtService.sign(payload, {
-      secret: this.configService.get('JWT_ACCESS_TOKEN_SECRET'),
-      expiresIn: `${this.configService.get(
-        'JWT_ACCESS_TOKEN_EXPIRATION_TIME',
-      )}s`,
+      secret: this.configService.get(JWT_ACCESS_TOKEN_SECRET),
+      expiresIn: `${this.configService.get(JWT_ACCESS_TOKEN_EXPIRATION_TIME)}s`,
     });
 
     return token;
@@ -101,15 +108,15 @@ export class AuthService {
   public getCookieWithJwtRefreshToken(userId: string): CookieWithRefreshToken {
     const payload: TokenPayload = { userId };
     const token = this.jwtService.sign(payload, {
-      secret: this.configService.get('JWT_REFRESH_TOKEN_SECRET'),
+      secret: this.configService.get(JWT_REFRESH_TOKEN_SECRET),
       expiresIn: `${this.configService.get(
-        'JWT_REFRESH_TOKEN_EXPIRATION_TIME',
+        JWT_REFRESH_TOKEN_EXPIRATION_TIME,
       )}s`,
     });
-    const refreshTokenCookie = cookie.serialize('refreshToken', token, {
+    const refreshTokenCookie = cookie.serialize(REFRESH_TOKEN_COOKIE, token, {
       httpOnly: true,
       path: '/',
-      maxAge: this.configService.get('JWT_REFRESH_TOKEN_EXPIRATION_TIME'),
+      maxAge: this.configService.get(JWT_REFRESH_TOKEN_EXPIRATION_TIME),
     });
 
     return {
@@ -122,20 +129,26 @@ export class AuthService {
     refreshToken: string,
     userId: string,
   ): Promise<UserResponse> {
-    if (refreshToken !== (await this.sessionService.getRefreshToken(userId))) {
-      throw new HttpException('Forbidden', HttpStatus.FORBIDDEN);
+    const refreshTokenFromDB = await this.sessionService.getRefreshToken(
+      userId,
+    );
+
+    if (refreshToken !== refreshTokenFromDB) {
+      throw new ForbiddenException('Forbidden');
     }
 
     const user = await this.userService.getUserById(userId);
 
     if (user === null) {
-      throw new HttpException('User doesn`t exist', HttpStatus.BAD_REQUEST);
+      throw new BadRequestException('User doesn`t exist');
     }
 
     return user;
   }
 
   public async refresh(req: RequestWithUser): Promise<AccessTokenResponse> {
+    console.log(req.user);
+
     const accessToken = this.getAccessJwtToken(req.user.id);
 
     const { refreshTokenCookie, token: refreshToken } =
@@ -157,7 +170,7 @@ export class AuthService {
   }
 
   private getCookieForLogout(): string {
-    return cookie.serialize('refreshToken', '', {
+    return cookie.serialize(REFRESH_TOKEN_COOKIE, '', {
       httpOnly: true,
       path: '/',
       maxAge: 0,

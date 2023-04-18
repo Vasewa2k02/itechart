@@ -1,10 +1,10 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { ForbiddenException, Injectable } from '@nestjs/common';
 
 import { SessionRepository } from './session.repository';
 
 @Injectable()
 export class SessionService {
-  constructor(private readonly sessionRepository: SessionRepository) {}
+  constructor(private sessionRepository: SessionRepository) {}
 
   public async createOrUpdateSessionByUserId(
     userId: string,
@@ -20,7 +20,7 @@ export class SessionService {
     const session = await this.sessionRepository.findSessionByUserId(userId);
 
     if (!session) {
-      throw new HttpException('Forbidden', HttpStatus.FORBIDDEN);
+      throw new ForbiddenException('Forbidden');
     }
 
     return session.refreshToken;

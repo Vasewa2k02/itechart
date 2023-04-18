@@ -1,5 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsEmail, IsString } from 'class-validator';
+
 import { IUser } from '../interfaces/user.interface';
 
 type UserRegistrationType = Pick<

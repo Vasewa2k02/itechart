@@ -6,6 +6,7 @@ import { ValidationPipe } from '@nestjs/common';
 import * as cookieParser from 'cookie-parser';
 
 import { AppModule } from './app.module';
+import { APP_PORT, APP_HOST } from './common/consts';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule, {
@@ -17,8 +18,8 @@ async function bootstrap() {
   app.use(cookieParser());
 
   const configService: ConfigService = app.get(ConfigService);
-  const PORT = configService.get('APP_PORT');
-  const HOST = configService.get('APP_HOST');
+  const PORT = configService.get(APP_PORT);
+  const HOST = configService.get(APP_HOST);
   const config = new DocumentBuilder()
     .setTitle('itechart-project')
     .setVersion('0.0.1')

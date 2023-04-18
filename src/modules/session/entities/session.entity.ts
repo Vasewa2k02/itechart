@@ -1,14 +1,23 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { ApiProperty } from '@nestjs/swagger';
-import { HydratedDocument } from 'mongoose';
+import { HydratedDocument, SchemaTypes } from 'mongoose';
+
+import { COLLECTION_NAMES } from 'src/entities/enums/collection-names.enum';
+import { MODEL_NAMES } from 'src/entities/enums/model-names.enum';
+import { User } from 'src/modules/user/entities/user.entity';
 
 export type SessionDocument = HydratedDocument<Session>;
 
-@Schema()
+@Schema({ collection: COLLECTION_NAMES.sessions })
 export class Session {
   @ApiProperty()
-  @Prop({ type: String, ref: 'User', unique: true, index: true })
-  userId: string;
+  @Prop({
+    type: SchemaTypes.ObjectId,
+    ref: MODEL_NAMES.user,
+    unique: true,
+    index: true,
+  })
+  user: User;
 
   @ApiProperty()
   @Prop({ required: true })
