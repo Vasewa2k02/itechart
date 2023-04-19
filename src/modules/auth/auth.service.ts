@@ -8,14 +8,6 @@ import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
 import * as cookie from 'cookie';
 
-import {
-  JWT_ACCESS_TOKEN_EXPIRATION_TIME,
-  JWT_ACCESS_TOKEN_SECRET,
-  JWT_REFRESH_TOKEN_EXPIRATION_TIME,
-  JWT_REFRESH_TOKEN_SECRET,
-  REFRESH_TOKEN_COOKIE,
-} from 'src/common/consts';
-
 import { UserRegistrationDto } from './dto/user-registration.dto';
 import CookieWithRefreshToken from './interface/cookie-with-refresh-token.interface';
 import RequestWithUser from './interface/request-with-user.interface';
@@ -25,6 +17,13 @@ import { UserLoginResponse } from './response/user-login.reponse';
 import { SessionService } from '../session/session.service';
 import { UserResponse } from '../user/response/user.response';
 import { UserService } from '../user/user.service';
+import {
+  JWT_ACCESS_TOKEN_EXPIRATION_TIME,
+  JWT_ACCESS_TOKEN_SECRET,
+  JWT_REFRESH_TOKEN_EXPIRATION_TIME,
+  JWT_REFRESH_TOKEN_SECRET,
+} from './constants/params';
+import { REFRESH_TOKEN } from './constants/cookie';
 
 @Injectable()
 export class AuthService {
@@ -35,7 +34,7 @@ export class AuthService {
     private configService: ConfigService,
   ) {}
 
-  public async verifyPassword(
+  async verifyPassword(
     enteredPassword: string,
     password: string,
   ): Promise<void> {
@@ -46,7 +45,7 @@ export class AuthService {
     }
   }
 
-  public async getAuthenticatedUser(
+  async getAuthenticatedUser(
     email: string,
     plainTextPassword: string,
   ): Promise<UserResponse> {
@@ -65,11 +64,11 @@ export class AuthService {
     }
   }
 
-  public async register(registrationDto: UserRegistrationDto): Promise<void> {
+  async register(registrationDto: UserRegistrationDto): Promise<void> {
     await this.userService.create(registrationDto);
   }
 
-  public async login(req: RequestWithUser): Promise<UserLoginResponse> {
+  async login(req: RequestWithUser): Promise<UserLoginResponse> {
     const user = await this.userService.getUserById(req.user.id);
 
     if (user === null) {
@@ -94,7 +93,7 @@ export class AuthService {
     };
   }
 
-  public getAccessJwtToken(userId: string): string {
+  getAccessJwtToken(userId: string): string {
     const payload: TokenPayload = { userId };
 
     const token = this.jwtService.sign(payload, {
@@ -105,7 +104,7 @@ export class AuthService {
     return token;
   }
 
-  public getCookieWithJwtRefreshToken(userId: string): CookieWithRefreshToken {
+  getCookieWithJwtRefreshToken(userId: string): CookieWithRefreshToken {
     const payload: TokenPayload = { userId };
     const token = this.jwtService.sign(payload, {
       secret: this.configService.get(JWT_REFRESH_TOKEN_SECRET),
@@ -113,7 +112,7 @@ export class AuthService {
         JWT_REFRESH_TOKEN_EXPIRATION_TIME,
       )}s`,
     });
-    const refreshTokenCookie = cookie.serialize(REFRESH_TOKEN_COOKIE, token, {
+    const refreshTokenCookie = cookie.serialize(REFRESH_TOKEN, token, {
       httpOnly: true,
       path: '/',
       maxAge: this.configService.get(JWT_REFRESH_TOKEN_EXPIRATION_TIME),
@@ -125,7 +124,7 @@ export class AuthService {
     };
   }
 
-  public async getUserIfRefreshTokenMatches(
+  async getUserIfRefreshTokenMatches(
     refreshToken: string,
     userId: string,
   ): Promise<UserResponse> {
@@ -146,9 +145,7 @@ export class AuthService {
     return user;
   }
 
-  public async refresh(req: RequestWithUser): Promise<AccessTokenResponse> {
-    console.log(req.user);
-
+  async refresh(req: RequestWithUser): Promise<AccessTokenResponse> {
     const accessToken = this.getAccessJwtToken(req.user.id);
 
     const { refreshTokenCookie, token: refreshToken } =
@@ -164,13 +161,13 @@ export class AuthService {
     return { accessToken };
   }
 
-  public async removeRefreshToken(req: RequestWithUser): Promise<void> {
+  async removeRefreshToken(req: RequestWithUser): Promise<void> {
     await this.sessionService.removeRefreshToken(req.user.id);
     req.res?.setHeader('Set-Cookie', this.getCookieForLogout());
   }
 
   private getCookieForLogout(): string {
-    return cookie.serialize(REFRESH_TOKEN_COOKIE, '', {
+    return cookie.serialize(REFRESH_TOKEN, '', {
       httpOnly: true,
       path: '/',
       maxAge: 0,

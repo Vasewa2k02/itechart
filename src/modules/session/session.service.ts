@@ -6,7 +6,7 @@ import { SessionRepository } from './session.repository';
 export class SessionService {
   constructor(private sessionRepository: SessionRepository) {}
 
-  public async createOrUpdateSessionByUserId(
+  async createOrUpdateSessionByUserId(
     userId: string,
     refreshToken: string,
   ): Promise<void> {
@@ -16,7 +16,7 @@ export class SessionService {
     );
   }
 
-  public async getRefreshToken(userId: string): Promise<string> {
+  async getRefreshToken(userId: string): Promise<string> {
     const session = await this.sessionRepository.findSessionByUserId(userId);
 
     if (!session) {
@@ -26,7 +26,7 @@ export class SessionService {
     return session.refreshToken;
   }
 
-  public async removeRefreshToken(userId: string): Promise<void> {
+  async removeRefreshToken(userId: string): Promise<void> {
     await this.sessionRepository.removeRefreshToken(userId);
   }
 }

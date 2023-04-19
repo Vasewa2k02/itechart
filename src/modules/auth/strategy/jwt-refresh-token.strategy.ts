@@ -4,19 +4,17 @@ import { PassportStrategy } from '@nestjs/passport';
 import { Request } from 'express';
 import { Strategy, ExtractJwt } from 'passport-jwt';
 
-import {
-  JWT_REFRESH_TOKEN_GUARD,
-  JWT_REFRESH_TOKEN_SECRET,
-} from 'src/common/consts';
 import { UserResponse } from 'src/modules/user/response/user.response';
 
 import { AuthService } from '../auth.service';
+import { JWT_REFRESH_TOKEN } from '../constants/guard';
+import { JWT_REFRESH_TOKEN_SECRET } from '../constants/params';
 import TokenPayload from '../interface/token-payload.interface';
 
 @Injectable()
 export class JwtRefreshTokenStrategy extends PassportStrategy(
   Strategy,
-  JWT_REFRESH_TOKEN_GUARD,
+  JWT_REFRESH_TOKEN,
 ) {
   constructor(
     private configService: ConfigService,
@@ -33,7 +31,7 @@ export class JwtRefreshTokenStrategy extends PassportStrategy(
     });
   }
 
-  public async validate(
+  async validate(
     request: Request,
     payload: TokenPayload,
   ): Promise<UserResponse> {

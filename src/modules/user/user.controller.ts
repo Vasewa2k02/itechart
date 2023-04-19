@@ -15,7 +15,7 @@ export class UserController {
   @ApiOkResponse()
   @UseGuards(JwtAuthGuard)
   @Get('profile')
-  public getUserInfo(@Req() req: RequestWithUser): Promise<IUser | null> {
+  getUserInfo(@Req() req: RequestWithUser): Promise<IUser | null> {
     return this.userService.getUserByEmail(req.user.email);
   }
 }

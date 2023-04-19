@@ -3,9 +3,9 @@ import { ConfigService } from '@nestjs/config';
 import { PassportStrategy } from '@nestjs/passport';
 import { Strategy, ExtractJwt } from 'passport-jwt';
 
-import { JWT_ACCESS_TOKEN_SECRET } from 'src/common/consts';
 import { UserResponse } from 'src/modules/user/response/user.response';
 import { UserService } from 'src/modules/user/user.service';
+import { JWT_ACCESS_TOKEN_SECRET } from '../constants/params';
 
 import TokenPayload from '../interface/token-payload.interface';
 
@@ -22,7 +22,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     });
   }
 
-  public async validate(payload: TokenPayload): Promise<UserResponse | null> {
+  async validate(payload: TokenPayload): Promise<UserResponse | null> {
     return await this.userService.getUserById(payload.userId);
   }
 }

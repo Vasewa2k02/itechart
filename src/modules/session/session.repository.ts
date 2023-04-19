@@ -6,6 +6,8 @@ import { ISession } from './interfaces/session.interface';
 import { Session } from './entities/session.entity';
 import { User } from '../user/entities/user.entity';
 import { IUser } from '../user/interfaces/user.interface';
+import { USER_FIELDS } from '../user/types/user.type';
+import { SESSION_FIELDS } from './types/session.type';
 
 @Injectable()
 export class SessionRepository {
@@ -14,20 +16,22 @@ export class SessionRepository {
     @InjectModel(User.name) private userModel: Model<IUser>,
   ) {}
 
-  public async createOrUpdateSessionByUserId(
+  async createOrUpdateSessionByUserId(
     userId: string,
     refreshToken: string,
   ): Promise<void> {
     await this.sessionModel.findOneAndUpdate(
-      { user: await this.userModel.findOne({ id: userId }) },
-      { refreshToken },
+      { [SESSION_FIELDS.user]: await this.userModel.findOne({ id: userId }) },
+      { [SESSION_FIELDS.refreshToken]: refreshToken },
       { upsert: true },
     );
   }
 
-  public async findSessionByUserId(userId: string): Promise<ISession> {
+  async findSessionByUserId(userId: string): Promise<ISession> {
     const session = await this.sessionModel.findOne({
-      user: await this.userModel.findOne({ id: userId }),
+      [SESSION_FIELDS.user]: await this.userModel.findOne({
+        [USER_FIELDS.id]: userId,
+      }),
     });
 
     if (session === null) {
@@ -37,9 +41,11 @@ export class SessionRepository {
     return session;
   }
 
-  public async removeRefreshToken(userId: string): Promise<void> {
+  async removeRefreshToken(userId: string): Promise<void> {
     await this.sessionModel.deleteOne({
-      user: await this.userModel.findOne({ id: userId }),
+      [SESSION_FIELDS.user]: await this.userModel.findOne({
+        [USER_FIELDS.id]: userId,
+      }),
     });
   }
 }

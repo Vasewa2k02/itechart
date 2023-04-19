@@ -27,7 +27,7 @@ export class AuthController {
   @ApiOkResponse()
   @HttpCode(HttpStatus.OK)
   @Post('sign-up')
-  public register(@Body() registrationDto: UserRegistrationDto): Promise<void> {
+  register(@Body() registrationDto: UserRegistrationDto): Promise<void> {
     return this.authService.register(registrationDto);
   }
 
@@ -35,7 +35,7 @@ export class AuthController {
   @HttpCode(HttpStatus.OK)
   @UseGuards(LocalAuthGuard)
   @Post('sign-in')
-  public login(@Req() req: RequestWithUser): Promise<UserLoginResponse> {
+  login(@Req() req: RequestWithUser): Promise<UserLoginResponse> {
     return this.authService.login(req);
   }
 
@@ -43,7 +43,7 @@ export class AuthController {
   @HttpCode(HttpStatus.OK)
   @UseGuards(JwtRefreshGuard)
   @Post('refresh')
-  public refresh(@Req() req: RequestWithUser): Promise<AccessTokenResponse> {
+  refresh(@Req() req: RequestWithUser): Promise<AccessTokenResponse> {
     return this.authService.refresh(req);
   }
 }
