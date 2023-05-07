@@ -6,16 +6,20 @@ import { ValidationPipe } from '@nestjs/common';
 import * as cookieParser from 'cookie-parser';
 
 import { AppModule } from './app.module';
-import { APP_PORT, APP_HOST } from './common/constants';
+import { APP_PORT, APP_HOST } from './common/constants/common';
+import { AllExceptionsFilter } from './common/middlewares/exeption-handler.middleware';
+import { WinstonLoggerService } from './modules/winston-logger/winston-logger.service';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule, {
     cors: true,
   });
+  const loggerService: WinstonLoggerService = app.get(WinstonLoggerService);
 
   app.useGlobalPipes(new ValidationPipe());
   app.setGlobalPrefix('api');
   app.use(cookieParser());
+  app.useGlobalFilters(new AllExceptionsFilter(loggerService));
 
   const configService: ConfigService = app.get(ConfigService);
   const PORT = configService.get(APP_PORT);
