@@ -20,8 +20,14 @@ export class SessionRepository {
     userId: string,
     refreshToken: string,
   ): Promise<void> {
+    const user = await this.userModel.findOne({
+      [USER_FIELDS.id]: userId,
+    });
+
     await this.sessionModel.findOneAndUpdate(
-      { [SESSION_FIELDS.user]: await this.userModel.findOne({ id: userId }) },
+      {
+        [SESSION_FIELDS.user]: user,
+      },
       { [SESSION_FIELDS.refreshToken]: refreshToken },
       { upsert: true },
     );

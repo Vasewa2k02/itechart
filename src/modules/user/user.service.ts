@@ -3,7 +3,7 @@ import { ConfigService } from '@nestjs/config';
 import { v4 } from 'uuid';
 import * as bcrypt from 'bcrypt';
 
-import { SALT } from 'src/common/constants';
+import { SALT } from 'src/common/constants/common';
 
 import { IUser } from './interfaces/user.interface';
 import { UserResponse } from './response/user.response';
