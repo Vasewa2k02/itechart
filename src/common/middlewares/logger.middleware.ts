@@ -26,31 +26,3 @@ export class LoggerMiddleware implements NestMiddleware {
     next();
   }
 }
-
-// @Injectable()
-// export class LoggerMiddleware implements NestMiddleware {
-//   constructor(
-//     private loggerService: WinstonLoggerService,
-//     private configService: ConfigService,
-//   ) {}
-
-//   use(req: RequestWithUser, res: Response, next: NextFunction) {
-//     const originalSend = res.send;
-
-//     (res.send as any) = (body: unknown) => {
-//       const resPayload = `[STATUS_CODE] ${res.statusCode} [BODY] ${body}`;
-
-//       this.loggerService.log(
-//         getLogInformation(
-//           String(this.configService.get(APP_ENVIRONMENT)),
-//           req,
-//           resPayload,
-//         ),
-//       );
-
-//       originalSend.call(this, body);
-//     };
-
-//     next();
-//   }
-// }

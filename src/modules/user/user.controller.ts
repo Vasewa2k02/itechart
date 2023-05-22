@@ -1,4 +1,4 @@
-import { Controller, Get, HttpStatus, Req, UseGuards } from '@nestjs/common';
+import { Controller, Get, Req, UseGuards } from '@nestjs/common';
 import {
   ApiBearerAuth,
   ApiOkResponse,
@@ -10,7 +10,6 @@ import { IUser } from './interfaces/user.interface';
 import { UserService } from './user.service';
 import { JwtAuthGuard } from '../auth/guard/jwt-auth.guard';
 import RequestWithUser from '../auth/interface/request-with-user.interface';
-import { HttpCode } from '@nestjs/common/decorators';
 
 @ApiTags('users')
 @Controller('users')
@@ -23,10 +22,5 @@ export class UserController {
   @Get('profile')
   getUserInfo(@Req() req: RequestWithUser): Promise<IUser | null> {
     return this.userService.getUserByEmail(req.user.email);
-  }
-  @HttpCode(HttpStatus.ACCEPTED)
-  @Get('q')
-  q(@Req() req: RequestWithUser): any {
-    return { qwe: '111' };
   }
 }
