@@ -35,6 +35,9 @@ export class Post extends Document {
 
   @Prop({ type: Date })
   createdAt: Date;
+
+  @Prop({ type: Boolean })
+  isDeleted: boolean;
 }
 
 export const PostSchema = SchemaFactory.createForClass(Post);
