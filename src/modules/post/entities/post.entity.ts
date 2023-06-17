@@ -6,6 +6,7 @@ import { MODEL_NAMES } from 'src/entities/enums/model-names.enum';
 import { Bookmark } from 'src/modules/bookmark/entities/bookmark.entity';
 import { Comment } from 'src/modules/comment/entities/comment.entity';
 import { Like } from 'src/modules/like/entities/like.entity';
+import { User } from 'src/modules/user/entities/user.entity';
 
 @Schema({ timestamps: true, collection: COLLECTION_NAMES.posts })
 export class Post extends Document {
@@ -23,6 +24,9 @@ export class Post extends Document {
 
   @Prop({ required: true })
   pathToMediaFile: string;
+
+  @Prop({ type: SchemaTypes.ObjectId, ref: MODEL_NAMES.user })
+  author: User;
 
   @Prop({ type: [{ type: SchemaTypes.ObjectId, ref: MODEL_NAMES.like }] })
   likes: Like[];

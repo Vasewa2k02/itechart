@@ -26,6 +26,9 @@ export class Comment extends Document {
 
   @Prop({ required: true, type: Date })
   createdAt: Date;
+
+  @Prop({ type: Boolean })
+  isDeleted: boolean;
 }
 
 export const CommentSchema = SchemaFactory.createForClass(Comment);

@@ -19,6 +19,9 @@ export class Bookmark extends Document {
 
   @Prop({ type: Date })
   createdAt: Date;
+
+  @Prop({ type: Boolean })
+  isDeleted: boolean;
 }
 
 export const BookmarkSchema = SchemaFactory.createForClass(Bookmark);

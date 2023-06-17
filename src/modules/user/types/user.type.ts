@@ -9,9 +9,14 @@ type UserEntity = Pick<
   | 'password'
   | 'firstName'
   | 'lastName'
+  | 'posts'
+  | 'comments'
+  | 'likes'
+  | 'bookmarks'
   | 'createdAt'
   | 'updatedAt'
   | 'role'
+  | 'isDeleted'
 >;
 
 export const USER_FIELDS: EntityFields<UserEntity> = {
@@ -20,7 +25,12 @@ export const USER_FIELDS: EntityFields<UserEntity> = {
   password: 'password',
   firstName: 'firstName',
   lastName: 'lastName',
+  posts: 'posts',
+  comments: 'comments',
+  likes: 'likes',
+  bookmarks: 'bookmarks',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
   role: 'role',
+  isDeleted: 'isDeleted',
 };
