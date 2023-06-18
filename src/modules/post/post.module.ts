@@ -16,6 +16,6 @@ import { User, UserSchema } from '../user/entities/user.entity';
   ],
   controllers: [PostController],
   providers: [PostService, PostRepository],
-  exports: [PostService],
+  exports: [PostService, PostRepository],
 })
 export class PostModule {}

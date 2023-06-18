@@ -24,7 +24,7 @@ export class Comment extends Document {
   @Prop({ type: [{ type: SchemaTypes.ObjectId, ref: MODEL_NAMES.like }] })
   likes: Like[];
 
-  @Prop({ required: true, type: Date })
+  @Prop({ type: Date })
   createdAt: Date;
 
   @Prop({ type: Boolean })

@@ -26,7 +26,7 @@ export class PostRepository {
   }
 
   async findAll(): Promise<PostResponse[]> {
-    return await this.postModel.find();
+    return await this.postModel.find().populate('comments');
   }
 
   async findPostById(id: string): Promise<IPost | null> {
@@ -48,7 +48,7 @@ export class PostRepository {
       ...сreatePostDto,
     });
 
-    await author?.updateOne({ [USER_FIELDS.posts]: post });
+    await author?.updateOne({ $push: { [USER_FIELDS.posts]: post } });
   }
 
   async update(id: string, updatePostDto: UpdatePostDto): Promise<void> {
@@ -68,15 +68,4 @@ export class PostRepository {
       { [POST_FIELDS.isDeleted]: true },
     );
   }
-
-  //   async getUserById(id: string): Promise<UserResponse | null> {
-  //     return await this.userModel.findOne({ [USER_FIELDS.id]: id }).populate({
-  //       path: USER_FIELDS.role,
-  //       populate: { path: ROLE_FIELDS.permissions },
-  //     });
-  //   }
-
-  //   async getUserByEmail(email: string): Promise<IUser | null> {
-  //     return await this.userModel.findOne({ [USER_FIELDS.email]: email }).exec();
-  //   }
 }

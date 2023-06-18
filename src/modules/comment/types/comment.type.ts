@@ -2,12 +2,12 @@ import { EntityFields } from 'src/common/types';
 
 import { Comment } from '../entities/comment.entity';
 
-type PostEntity = Pick<
+type CommentEntity = Pick<
   Comment,
   'id' | 'content' | 'author' | 'post' | 'likes' | 'createdAt' | 'isDeleted'
 >;
 
-export const POST_FIELDS: EntityFields<PostEntity> = {
+export const COMMENT_FIELDS: EntityFields<CommentEntity> = {
   id: 'id',
   content: 'content',
   author: 'author',
