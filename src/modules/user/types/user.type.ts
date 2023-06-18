@@ -4,6 +4,7 @@ import { User } from '../entities/user.entity';
 
 type UserEntity = Pick<
   User,
+  | '_id'
   | 'id'
   | 'email'
   | 'password'
@@ -20,6 +21,7 @@ type UserEntity = Pick<
 >;
 
 export const USER_FIELDS: EntityFields<UserEntity> = {
+  _id: '_id',
   id: 'id',
   email: 'email',
   password: 'password',

@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsString } from 'class-validator';
+import { IsDefined, IsNotEmpty, IsString } from 'class-validator';
 
 import { IPost } from '../interfaces/post.interface';
 
@@ -10,18 +10,26 @@ type PostCreationType = Pick<
 
 export class CreatePostDto implements PostCreationType {
   @ApiProperty()
+  @IsDefined()
+  @IsNotEmpty()
   @IsString()
   title: string;
 
   @ApiProperty()
+  @IsDefined()
+  @IsNotEmpty()
   @IsString()
   subtitle: string;
 
   @ApiProperty()
+  @IsDefined()
+  @IsNotEmpty()
   @IsString()
   content: string;
 
   @ApiProperty()
+  @IsDefined()
+  @IsNotEmpty()
   @IsString()
   pathToMediaFile: string;
 }

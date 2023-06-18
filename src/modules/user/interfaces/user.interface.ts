@@ -7,6 +7,7 @@ import { Like } from 'src/modules/like/entities/like.entity';
 import { Post } from 'src/modules/post/entities/post.entity';
 
 export interface IUser extends Document {
+  _id: string;
   id: string;
   email: string;
   firstName: string;

@@ -15,13 +15,13 @@ export class Like extends Document {
   @Prop({ required: true, type: SchemaTypes.ObjectId, ref: MODEL_NAMES.user })
   author: User;
 
-  @Prop({ type: SchemaTypes.ObjectId, ref: MODEL_NAMES.post })
-  post: Post;
+  @Prop({
+    type: SchemaTypes.ObjectId,
+    ref: MODEL_NAMES.post || MODEL_NAMES.comment,
+  })
+  likedEntity: Post | Comment;
 
-  @Prop({ type: SchemaTypes.ObjectId, ref: MODEL_NAMES.comment })
-  comment: Comment;
-
-  @Prop({ required: true, type: Date })
+  @Prop({ type: Date })
   createdAt: Date;
 }
 
