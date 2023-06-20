@@ -30,20 +30,22 @@ export class PostService {
   ): Promise<void> {
     const post = await this.postRepository.findPostById(id);
 
-    await this.checkPostExistence(post);
-    await this.checkPostOwner(post, authorObjectId);
+    this.checkPostExistence(post);
+    this.checkPostOwner(post, authorObjectId);
+
     await this.postRepository.update(id, updatePostDto);
   }
 
   async delete(id: string, authorObjectId: string): Promise<void> {
     const post = await this.postRepository.findPostById(id);
 
-    await this.checkPostExistence(post);
-    await this.checkPostOwner(post, authorObjectId);
+    this.checkPostExistence(post);
+    this.checkPostOwner(post, authorObjectId);
+
     await this.postRepository.delete(id);
   }
 
-  async checkPostExistence(post: IPost | null): Promise<void> {
+  checkPostExistence(post: IPost | null): void {
     if (!post) {
       throw new BadRequestException('Post not found');
     }
@@ -53,10 +55,7 @@ export class PostService {
     }
   }
 
-  async checkPostOwner(
-    post: IPost | null,
-    authorObjectId: string,
-  ): Promise<void> {
+  checkPostOwner(post: IPost | null, authorObjectId: string): void {
     if (post?.author.toString() !== authorObjectId) {
       throw new BadRequestException('This post doesn`t belong to you');
     }

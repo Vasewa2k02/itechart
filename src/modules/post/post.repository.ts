@@ -26,7 +26,7 @@ export class PostRepository {
   }
 
   async findAll(): Promise<PostResponse[]> {
-    return await this.postModel.find().populate('comments');
+    return await this.postModel.find().populate(['comments', 'likes']);
   }
 
   async findPostById(id: string): Promise<IPost | null> {
