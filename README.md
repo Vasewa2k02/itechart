@@ -1,3 +1,6 @@
+## [Link to swagger](https://itechart-project.onrender.com/api/swagger)
+## [Postman collection](https://api.postman.com/collections/23039755-3a28e755-6dba-40f8-b4da-a0f6e4ecccfd?access_key=PMAT-01H3CXCJ0BQTSJDSGNEJ0K18XM)
+## [Presentation](https://www.canva.com/design/DAFmXQnpoiA/rw3U5ebthwVuDb8QVNBqxA/view?utm_content=DAFmXQnpoiA&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
