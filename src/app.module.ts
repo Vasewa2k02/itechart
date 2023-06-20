@@ -9,6 +9,10 @@ import { LoggerMiddleware } from './common/middlewares/logger.middleware';
 import { AuthModule } from './modules/auth/auth.module';
 import { UserModule } from './modules/user/user.module';
 import { WinstonLoggerModule } from './modules/winston-logger/winston-logger.module';
+import { PostModule } from './modules/post/post.module';
+import { LikeModule } from './modules/like/like.module';
+import { CommentModule } from './modules/comment/comment.module';
+import { BookmarkModule } from './modules/bookmark/bookmark.module';
 
 @Module({
   imports: [
@@ -21,6 +25,10 @@ import { WinstonLoggerModule } from './modules/winston-logger/winston-logger.mod
     AuthModule,
     UserModule,
     WinstonLoggerModule,
+    PostModule,
+    LikeModule,
+    CommentModule,
+    BookmarkModule,
   ],
   controllers: [],
   providers: [

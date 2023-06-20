@@ -3,4 +3,8 @@ export const COLLECTION_NAMES = {
   permissions: 'permissions',
   sessions: 'sessions',
   roles: 'roles',
+  posts: 'posts',
+  comments: 'comments',
+  likes: 'likes',
+  bookmarks: 'bookmarks',
 };

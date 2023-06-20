@@ -3,4 +3,8 @@ export const MODEL_NAMES = {
   permission: 'Permission',
   session: 'Session',
   role: 'Role',
+  post: 'Post',
+  comment: 'Comment',
+  like: 'Like',
+  bookmark: 'Bookmark',
 };

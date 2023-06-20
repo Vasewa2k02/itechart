@@ -16,6 +16,7 @@ export class UserService {
     private userRepository: UserRepository,
     private configService: ConfigService,
   ) {}
+
   async create(createUserDto: CreateUserDto): Promise<void> {
     const user = await this.userRepository.getUserByEmail(createUserDto.email);
 
