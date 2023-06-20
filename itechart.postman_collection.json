@@ -24,15 +24,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/api/auth/sign-up",
-							"protocol": "http",
+							"raw": "https://itechart-project.onrender.com/api/auth/sign-up",
+							"protocol": "https",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"itechart-project",
+								"onrender",
+								"com"
 							],
-							"port": "5000",
 							"path": [
 								"api",
 								"auth",
@@ -57,15 +55,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/api/auth/sign-in",
-							"protocol": "http",
+							"raw": "https://itechart-project.onrender.com/api/auth/sign-in",
+							"protocol": "https",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"itechart-project",
+								"onrender",
+								"com"
 							],
-							"port": "5000",
 							"path": [
 								"api",
 								"auth",
@@ -90,15 +86,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/api/auth/refresh",
-							"protocol": "http",
+							"raw": "https://itechart-project.onrender.com/api/auth/refresh",
+							"protocol": "https",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"itechart-project",
+								"onrender",
+								"com"
 							],
-							"port": "5000",
 							"path": [
 								"api",
 								"auth",
@@ -141,19 +135,549 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/api/users/profile",
-							"protocol": "http",
+							"raw": "https://itechart-project.onrender.com/api/users/profile",
+							"protocol": "https",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"itechart-project",
+								"onrender",
+								"com"
 							],
-							"port": "5000",
 							"path": [
 								"api",
 								"users",
 								"profile"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "post",
+			"item": [
+				{
+					"name": "api/post",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://itechart-project.onrender.com/api/post",
+							"protocol": "https",
+							"host": [
+								"itechart-project",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"post"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/post/all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://itechart-project.onrender.com/api/post/all",
+							"protocol": "https",
+							"host": [
+								"itechart-project",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"post",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJiMzgwODhlZS05ZThiLTQ1YTQtODM0ZC04ZWQ3NGEzYzhmY2UiLCJpYXQiOjE2ODY5MjI4MTEsImV4cCI6MTY4Njk0NDQxMX0.eN8gpfJkHq1mOSHAAZNCIZUDBWeQG-rHZkfCypZlhjo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"first\",\r\n    \"subtitle\": \"my first post\",\r\n    \"content\": \"qwe\",\r\n    \"pathToMediaFile\": \"somePath\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://itechart-project.onrender.com/api/post",
+							"protocol": "https",
+							"host": [
+								"itechart-project",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"post"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/post/:id",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"first\",\r\n    \"subtitle\": \"my first post\",\r\n    \"content\": \"qwe\",\r\n    \"pathToMediaFile\": \"somePath\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://itechart-project.onrender.com/api/post/",
+							"protocol": "https",
+							"host": [
+								"itechart-project",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"post",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/post/:id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"first\",\r\n    \"subtitle\": \"my first post\",\r\n    \"content\": \"qwe\",\r\n    \"pathToMediaFile\": \"somePath\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://itechart-project.onrender.com/api/post/8903e1d8-d66c-4d75-9eef-ef393fbdedc7",
+							"protocol": "https",
+							"host": [
+								"itechart-project",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"post",
+								"8903e1d8-d66c-4d75-9eef-ef393fbdedc7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "comment",
+			"item": [
+				{
+					"name": "api/comment/not-deleted-for-post/:post-id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://itechart-project.onrender.com/api/comment/not-deleted-for-post/09788934-412e-41b2-ae55-26336186a441",
+							"protocol": "https",
+							"host": [
+								"itechart-project",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"comment",
+								"not-deleted-for-post",
+								"09788934-412e-41b2-ae55-26336186a441"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/comment/all-for-post/:post-id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://itechart-project.onrender.com/api/comment/all-for-post/",
+							"protocol": "https",
+							"host": [
+								"itechart-project",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"comment",
+								"all-for-post",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/comment/all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://itechart-project.onrender.com/api/comment/all",
+							"protocol": "https",
+							"host": [
+								"itechart-project",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"comment",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/comment/:postId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJiMzgwODhlZS05ZThiLTQ1YTQtODM0ZC04ZWQ3NGEzYzhmY2UiLCJpYXQiOjE2ODcwMDM5NTEsImV4cCI6MTY4ODAwMzk1MX0.LtM50boBxv4LCFO-r_npnowlLc-JZfAesqfRd1Ut8Us",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://itechart-project.onrender.com/api/comment/",
+							"protocol": "https",
+							"host": [
+								"itechart-project",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"comment",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/comment/:id",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"first\",\r\n    \"subtitle\": \"my first post\",\r\n    \"content\": \"qwe\",\r\n    \"pathToMediaFile\": \"somePath\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://itechart-project.onrender.com/api/comment/",
+							"protocol": "https",
+							"host": [
+								"itechart-project",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"comment",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/comment/:id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"first\",\r\n    \"subtitle\": \"my first post\",\r\n    \"content\": \"qwe\",\r\n    \"pathToMediaFile\": \"somePath\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://itechart-project.onrender.com/api/comment/8903e1d8-d66c-4d75-9eef-ef393fbdedc7",
+							"protocol": "https",
+							"host": [
+								"itechart-project",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"comment",
+								"8903e1d8-d66c-4d75-9eef-ef393fbdedc7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "like",
+			"item": [
+				{
+					"name": "api/like/all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://itechart-project.onrender.com/api/like/all",
+							"protocol": "https",
+							"host": [
+								"itechart-project",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"like",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/like/liked-entity/:likedEntityId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://itechart-project.onrender.com/api/like/liked-entity/648df7a44f242e162f13b4a5",
+							"protocol": "https",
+							"host": [
+								"itechart-project",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"like",
+								"liked-entity",
+								"648df7a44f242e162f13b4a5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/like",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://itechart-project.onrender.com/api/like",
+							"protocol": "https",
+							"host": [
+								"itechart-project",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"like"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/like/:id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://itechart-project.onrender.com/api/like",
+							"protocol": "https",
+							"host": [
+								"itechart-project",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"like"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "bookmark",
+			"item": [
+				{
+					"name": "api/bookmark/all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://itechart-project.onrender.com/api/bookmark/all",
+							"protocol": "https",
+							"host": [
+								"itechart-project",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"bookmark",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/bookmark/post/:id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://itechart-project.onrender.com/api/bookmark/all",
+							"protocol": "https",
+							"host": [
+								"itechart-project",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"bookmark",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/bookmark/user/:id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://itechart-project.onrender.com/api/bookmark/user/b38088ee-9e8b-45a4-834d-8ed74a3c8fce",
+							"protocol": "https",
+							"host": [
+								"itechart-project",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"bookmark",
+								"user",
+								"b38088ee-9e8b-45a4-834d-8ed74a3c8fce"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/bookmark",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://itechart-project.onrender.com/api/bookmark",
+							"protocol": "https",
+							"host": [
+								"itechart-project",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"bookmark"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/bookmark/:id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://itechart-project.onrender.com/api/bookmark",
+							"protocol": "https",
+							"host": [
+								"itechart-project",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"bookmark"
 							]
 						}
 					},
