@@ -9,7 +9,7 @@ import {
   Body,
   Param,
 } from '@nestjs/common';
-import { ApiBearerAuth } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 
 import { CommentService } from './comment.service';
 import { JwtAuthGuard } from '../auth/guard/jwt-auth.guard';
@@ -18,6 +18,7 @@ import { CreateCommentDto } from './dto/create-comment.dto';
 import { CommentResponse } from './response/comment.response';
 import { UpdateCommentDto } from './dto/update-comment.dto';
 
+@ApiTags('comment')
 @Controller('comment')
 export class CommentController {
   constructor(private commentService: CommentService) {}

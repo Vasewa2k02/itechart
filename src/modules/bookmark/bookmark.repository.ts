@@ -12,7 +12,6 @@ import { IBookmark } from './interfaces/bookmark.interface';
 import { Bookmark } from './entities/bookmark.entity';
 import { CreateBookmarkDto } from './dto/create-bookmark.dto';
 import { BOOKMARK_FIELDS } from './types/bookmark.type';
-import { use } from 'passport';
 import { BookmarkResponse } from './response/bookmark.response';
 
 @Injectable()

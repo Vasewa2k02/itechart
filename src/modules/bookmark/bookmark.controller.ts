@@ -9,12 +9,13 @@ import {
   Get,
 } from '@nestjs/common';
 import { BookmarkService } from './bookmark.service';
-import { ApiBearerAuth } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { JwtAuthGuard } from '../auth/guard/jwt-auth.guard';
 import RequestWithUser from '../auth/interface/request-with-user.interface';
 import { CreateBookmarkDto } from './dto/create-bookmark.dto';
 import { BookmarkResponse } from './response/bookmark.response';
 
+@ApiTags('bookmark')
 @Controller('bookmark')
 export class BookmarkController {
   constructor(private readonly bookmarkService: BookmarkService) {}

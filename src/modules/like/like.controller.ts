@@ -8,7 +8,7 @@ import {
   Req,
   Param,
 } from '@nestjs/common';
-import { ApiBearerAuth } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 
 import { LikeService } from './like.service';
 import { JwtAuthGuard } from '../auth/guard/jwt-auth.guard';
@@ -16,6 +16,7 @@ import RequestWithUser from '../auth/interface/request-with-user.interface';
 import { CreateLikeDto } from './dto/create-like.dto';
 import { LikeResponse } from './response/like.response';
 
+@ApiTags('like')
 @Controller('like')
 export class LikeController {
   constructor(private readonly likeService: LikeService) {}
