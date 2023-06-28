@@ -22,8 +22,11 @@ export class Permission {
   @Prop({ required: true, enum: HTTPMethod })
   method: HTTPMethod;
 
-  @Prop({ required: true, type: SchemaTypes.ObjectId, ref: MODEL_NAMES.role })
-  role: Role;
+  @Prop({
+    required: true,
+    type: [{ type: SchemaTypes.ObjectId, ref: MODEL_NAMES.role }],
+  })
+  role: Role[];
 }
 
 export const PermissionSchema = SchemaFactory.createForClass(Permission);

@@ -51,6 +51,19 @@ export class BookmarkRepository {
     return await this.bookmarkModel.findOne({ [BOOKMARK_FIELDS.id]: id });
   }
 
+  async findBookmarkByUserIdAndPostId(
+    userId: string,
+    postId: string,
+  ): Promise<IBookmark | null> {
+    const user = await this.userModel.findOne({ [USER_FIELDS.id]: userId });
+    const post = await this.postModel.findOne({ [POST_FIELDS.id]: postId });
+
+    return await this.bookmarkModel.findOne({
+      [BOOKMARK_FIELDS.user]: user,
+      [BOOKMARK_FIELDS.post]: post,
+    });
+  }
+
   async create(
     id: string,
     userId: string,

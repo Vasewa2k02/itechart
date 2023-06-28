@@ -34,20 +34,31 @@ export class BookmarkService {
   ): Promise<void> {
     const { postId } = createBookmarkDto;
     const post = await this.postRepository.findPostById(postId);
+    this.postService.checkPostExistence(post);
 
-    await this.postService.checkPostExistence(post);
+    const bookmark =
+      await this.bookmarkRepository.findBookmarkByUserIdAndPostId(
+        userId,
+        postId,
+      );
+
+    if (bookmark) {
+      throw new BadRequestException('Bookmark alredy exists');
+    }
+
     await this.bookmarkRepository.create(v4(), userId, createBookmarkDto);
   }
 
   async delete(id: string, authorObjectId: string): Promise<void> {
     const bookmark = await this.bookmarkRepository.findBookmarkById(id);
 
-    await this.checkBookmarkExistence(bookmark);
-    await this.checkBookmarkOwner(bookmark, authorObjectId);
+    this.checkBookmarkExistence(bookmark);
+    this.checkBookmarkOwner(bookmark, authorObjectId);
+
     await this.bookmarkRepository.delete(id);
   }
 
-  async checkBookmarkExistence(bookmark: IBookmark | null): Promise<void> {
+  checkBookmarkExistence(bookmark: IBookmark | null): void {
     if (!bookmark) {
       throw new BadRequestException('Bookmark not found');
     }
@@ -57,10 +68,7 @@ export class BookmarkService {
     }
   }
 
-  async checkBookmarkOwner(
-    bookmark: IBookmark | null,
-    authorObjectId: string,
-  ): Promise<void> {
+  checkBookmarkOwner(bookmark: IBookmark | null, authorObjectId: string): void {
     if (bookmark?.user.toString() !== authorObjectId) {
       throw new BadRequestException('This bookmark doesn`t belong to you');
     }

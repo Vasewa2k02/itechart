@@ -1,5 +1,8 @@
 import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
-import { ForbiddenException } from '@nestjs/common/exceptions';
+import {
+  UnauthorizedException,
+  ForbiddenException,
+} from '@nestjs/common/exceptions';
 import { AuthGuard } from '@nestjs/passport';
 
 import { User } from 'src/modules/user/entities/user.entity';
@@ -23,19 +26,20 @@ export class JwtAuthGuard extends AuthGuard(JWT) implements CanActivate {
     context: ExecutionContext,
   ): any {
     if (!user) {
-      throw new ForbiddenException('Authentication token is missing.');
+      throw new UnauthorizedException('Authentication token is missing.');
     }
 
-    console.log(user);
+    const className = context.getClass().name;
+    const requestMethod = context.switchToHttp().getRequest<Request>().method;
+    const permissionContext = context.getHandler().name;
 
     if (
       !user.role.permissions.find(
         (permission) =>
-          permission.descriptor === context.getClass().name &&
-          permission.method ===
-            context.switchToHttp().getRequest<Request>().method &&
-          (permission.context === null ||
-            permission.context === context.getHandler().name),
+          permission.descriptor === className &&
+          permission.method === requestMethod &&
+          (permission.context === undefined ||
+            permission.context === permissionContext),
       )
     ) {
       throw new ForbiddenException('Not enough permissions.');
