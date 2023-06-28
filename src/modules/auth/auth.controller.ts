@@ -25,7 +25,7 @@ export class AuthController {
   constructor(private authService: AuthService) {}
 
   @ApiOkResponse()
-  @HttpCode(HttpStatus.OK)
+  @HttpCode(HttpStatus.CREATED)
   @Post('sign-up')
   register(@Body() registrationDto: UserRegistrationDto): Promise<void> {
     return this.authService.register(registrationDto);

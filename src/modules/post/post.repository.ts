@@ -26,11 +26,9 @@ export class PostRepository {
   }
 
   async findAll(): Promise<PostResponse[]> {
-    return await this.postModel.find().populate(['comments', 'likes']);
-  }
-
-  async findPostById(id: string): Promise<IPost | null> {
-    return await this.postModel.findOne({ [POST_FIELDS.id]: id });
+    return await this.postModel
+      .find()
+      .populate([POST_FIELDS.comments, POST_FIELDS.likes]);
   }
 
   async create(
@@ -49,6 +47,10 @@ export class PostRepository {
     });
 
     await author?.updateOne({ $push: { [USER_FIELDS.posts]: post } });
+  }
+
+  async findPostById(id: string): Promise<IPost | null> {
+    return await this.postModel.findOne({ [POST_FIELDS.id]: id });
   }
 
   async update(id: string, updatePostDto: UpdatePostDto): Promise<void> {

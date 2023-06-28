@@ -26,6 +26,21 @@ export class JwtAuthGuard extends AuthGuard(JWT) implements CanActivate {
       throw new ForbiddenException('Authentication token is missing.');
     }
 
+    console.log(user);
+
+    if (
+      !user.role.permissions.find(
+        (permission) =>
+          permission.descriptor === context.getClass().name &&
+          permission.method ===
+            context.switchToHttp().getRequest<Request>().method &&
+          (permission.context === null ||
+            permission.context === context.getHandler().name),
+      )
+    ) {
+      throw new ForbiddenException('Not enough permissions.');
+    }
+
     return user;
   }
 }

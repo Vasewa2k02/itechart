@@ -12,10 +12,10 @@ export type SessionDocument = HydratedDocument<Session>;
 export class Session {
   @ApiProperty()
   @Prop({
+    required: true,
     type: SchemaTypes.ObjectId,
     ref: MODEL_NAMES.user,
     unique: true,
-    index: true,
   })
   user: User;
 
