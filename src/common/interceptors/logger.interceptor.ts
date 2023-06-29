@@ -8,8 +8,8 @@ import { ConfigService } from '@nestjs/config';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
-import { APP_ENVIRONMENT } from 'src/modules/winston-logger/constants/params';
-import { WinstonLoggerService } from 'src/modules/winston-logger/winston-logger.service';
+import { APP_ENVIRONMENT } from 'modules/winston-logger/constants/params';
+import { WinstonLoggerService } from 'modules/winston-logger/winston-logger.service';
 
 import { PROD_APP_ENVIRONMENT } from '../constants/logger-info';
 

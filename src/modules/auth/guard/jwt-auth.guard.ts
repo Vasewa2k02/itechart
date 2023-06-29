@@ -1,8 +1,8 @@
 import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
-import { ForbiddenException } from '@nestjs/common/exceptions';
+import { UnauthorizedException } from '@nestjs/common/exceptions';
 import { AuthGuard } from '@nestjs/passport';
 
-import { User } from 'src/modules/user/entities/user.entity';
+import { User } from 'modules/user/entities/user.entity';
 
 import { JWT } from '../constants/guard';
 
@@ -16,14 +16,9 @@ export class JwtAuthGuard extends AuthGuard(JWT) implements CanActivate {
     return super.canActivate(context);
   }
 
-  handleRequest(
-    error: Error,
-    user: User,
-    info: string,
-    context: ExecutionContext,
-  ): any {
+  handleRequest(error: Error, user: User): any {
     if (!user) {
-      throw new ForbiddenException('Authentication token is missing.');
+      throw new UnauthorizedException('Authentication token is missing.');
     }
 
     return user;

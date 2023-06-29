@@ -1,10 +1,10 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document, SchemaTypes } from 'mongoose';
 
-import { COLLECTION_NAMES } from 'src/entities/enums/collection-names.enum';
-import { MODEL_NAMES } from 'src/entities/enums/model-names.enum';
-import { Post } from 'src/modules/post/entities/post.entity';
-import { User } from 'src/modules/user/entities/user.entity';
+import { COLLECTION_NAMES } from 'entities/enums/collection-names.enum';
+import { MODEL_NAMES } from 'entities/enums/model-names.enum';
+import { Post } from 'modules/post/entities/post.entity';
+import { User } from 'modules/user/entities/user.entity';
 
 @Schema({ timestamps: true, collection: COLLECTION_NAMES.bookmarks })
 export class Bookmark extends Document {

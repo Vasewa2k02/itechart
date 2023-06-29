@@ -9,7 +9,7 @@ import {
 } from '@nestjs/common';
 import { ApiOkResponse, ApiTags } from '@nestjs/swagger';
 
-import { swaggerType } from 'src/helpers/swagger/utils';
+import { swaggerType } from 'helpers/swagger/utils';
 
 import RequestWithUser from './interface/request-with-user.interface';
 import { AuthService } from './auth.service';
@@ -25,7 +25,7 @@ export class AuthController {
   constructor(private authService: AuthService) {}
 
   @ApiOkResponse()
-  @HttpCode(HttpStatus.OK)
+  @HttpCode(HttpStatus.CREATED)
   @Post('sign-up')
   register(@Body() registrationDto: UserRegistrationDto): Promise<void> {
     return this.authService.register(registrationDto);

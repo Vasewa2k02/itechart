@@ -4,7 +4,7 @@ import { PassportStrategy } from '@nestjs/passport';
 import { Request } from 'express';
 import { Strategy, ExtractJwt } from 'passport-jwt';
 
-import { UserResponse } from 'src/modules/user/response/user.response';
+import { UserResponse } from 'modules/user/response/user.response';
 
 import { AuthService } from '../auth.service';
 import { JWT_REFRESH_TOKEN } from '../constants/guard';

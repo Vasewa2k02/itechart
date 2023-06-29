@@ -1,9 +1,9 @@
 import { Document } from 'mongoose';
 
-import { Like } from 'src/modules/like/entities/like.entity';
-import { Bookmark } from 'src/modules/bookmark/entities/bookmark.entity';
-import { Comment } from 'src/modules/comment/entities/comment.entity';
-import { User } from 'src/modules/user/entities/user.entity';
+import { Like } from 'modules/like/entities/like.entity';
+import { Bookmark } from 'modules/bookmark/entities/bookmark.entity';
+import { Comment } from 'modules/comment/entities/comment.entity';
+import { User } from 'modules/user/entities/user.entity';
 
 export interface IPost extends Document {
   id: string;

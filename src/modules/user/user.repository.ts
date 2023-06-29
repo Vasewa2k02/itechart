@@ -2,8 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 
-import { Role } from 'src/entities/role.entity';
-import { ROLE_FIELDS } from 'src/entities/types/role.type';
+import { Role } from 'entities/role.entity';
+import { ROLE_FIELDS } from 'entities/types/role.type';
 
 import { CreateUserDto } from './dto/create-user.dto';
 import { User } from './entities/user.entity';
@@ -38,7 +38,6 @@ export class UserRepository {
   async getUserById(id: string): Promise<UserResponse | null> {
     return await this.userModel.findOne({ [USER_FIELDS.id]: id }).populate({
       path: USER_FIELDS.role,
-      populate: { path: ROLE_FIELDS.permissions },
     });
   }
 

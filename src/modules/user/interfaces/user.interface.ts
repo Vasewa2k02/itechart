@@ -1,10 +1,10 @@
 import { Document } from 'mongoose';
 
-import { Role } from 'src/entities/role.entity';
-import { Bookmark } from 'src/modules/bookmark/entities/bookmark.entity';
-import { Comment } from 'src/modules/comment/entities/comment.entity';
-import { Like } from 'src/modules/like/entities/like.entity';
-import { Post } from 'src/modules/post/entities/post.entity';
+import { Role } from 'entities/role.entity';
+import { Bookmark } from 'modules/bookmark/entities/bookmark.entity';
+import { Comment } from 'modules/comment/entities/comment.entity';
+import { Like } from 'modules/like/entities/like.entity';
+import { Post } from 'modules/post/entities/post.entity';
 
 export interface IUser extends Document {
   _id: string;

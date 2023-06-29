@@ -9,7 +9,7 @@ import {
   Req,
   Param,
 } from '@nestjs/common';
-import { ApiBearerAuth } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 
 import { PostService } from './post.service';
 import { CreatePostDto } from './dto/create-post.dto';
@@ -18,6 +18,7 @@ import { JwtAuthGuard } from '../auth/guard/jwt-auth.guard';
 import { UpdatePostDto } from './dto/update-post.dto';
 import { PostResponse } from './response/post.response';
 
+@ApiTags('post')
 @Controller('post')
 export class PostController {
   constructor(private readonly postService: PostService) {}

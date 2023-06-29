@@ -6,7 +6,7 @@ import {
 } from '@nestjs/common';
 import { HttpStatus } from '@nestjs/common/enums';
 
-import { WinstonLoggerService } from 'src/modules/winston-logger/winston-logger.service';
+import { WinstonLoggerService } from 'modules/winston-logger/winston-logger.service';
 
 @Catch()
 export class AllExceptionsFilter implements ExceptionFilter {

@@ -12,7 +12,6 @@ import { IBookmark } from './interfaces/bookmark.interface';
 import { Bookmark } from './entities/bookmark.entity';
 import { CreateBookmarkDto } from './dto/create-bookmark.dto';
 import { BOOKMARK_FIELDS } from './types/bookmark.type';
-import { use } from 'passport';
 import { BookmarkResponse } from './response/bookmark.response';
 
 @Injectable()
@@ -49,6 +48,19 @@ export class BookmarkRepository {
 
   async findBookmarkById(id: string): Promise<IBookmark | null> {
     return await this.bookmarkModel.findOne({ [BOOKMARK_FIELDS.id]: id });
+  }
+
+  async findBookmarkByUserIdAndPostId(
+    userId: string,
+    postId: string,
+  ): Promise<IBookmark | null> {
+    const user = await this.userModel.findOne({ [USER_FIELDS.id]: userId });
+    const post = await this.postModel.findOne({ [POST_FIELDS.id]: postId });
+
+    return await this.bookmarkModel.findOne({
+      [BOOKMARK_FIELDS.user]: user,
+      [BOOKMARK_FIELDS.post]: post,
+    });
   }
 
   async create(
