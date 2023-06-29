@@ -7,7 +7,6 @@ import { swaggerType } from 'src/helpers/swagger/utils';
 import { User } from '../modules/user/entities/user.entity';
 import { COLLECTION_NAMES } from './enums/collection-names.enum';
 import { MODEL_NAMES } from './enums/model-names.enum';
-import { Permission } from './permission.entity';
 
 export type RoleDocument = HydratedDocument<Role>;
 
@@ -24,12 +23,6 @@ export class Role {
   @ApiProperty(swaggerType(User))
   @Prop({ type: [{ type: SchemaTypes.ObjectId, ref: MODEL_NAMES.user }] })
   users: User[];
-
-  @ApiProperty(swaggerType(Permission))
-  @Prop({
-    type: [{ type: SchemaTypes.ObjectId, ref: MODEL_NAMES.permission }],
-  })
-  permissions: Permission[];
 }
 
 export const RoleSchema = SchemaFactory.createForClass(Role);

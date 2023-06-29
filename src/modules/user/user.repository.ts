@@ -38,7 +38,6 @@ export class UserRepository {
   async getUserById(id: string): Promise<UserResponse | null> {
     return await this.userModel.findOne({ [USER_FIELDS.id]: id }).populate({
       path: USER_FIELDS.role,
-      populate: { path: ROLE_FIELDS.permissions },
     });
   }
 

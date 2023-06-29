@@ -1,6 +1,5 @@
 import {
   Controller,
-  UseGuards,
   Post,
   Get,
   Patch,
@@ -11,8 +10,10 @@ import {
 } from '@nestjs/common';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 
+import { AuthWithRoles } from 'src/common/decorators/auth-with-roles.decorator';
+import { Role } from 'src/common/constants/role.enum';
+
 import { CommentService } from './comment.service';
-import { JwtAuthGuard } from '../auth/guard/jwt-auth.guard';
 import RequestWithUser from '../auth/interface/request-with-user.interface';
 import { CreateCommentDto } from './dto/create-comment.dto';
 import { CommentResponse } from './response/comment.response';
@@ -31,21 +32,21 @@ export class CommentController {
   }
 
   @ApiBearerAuth()
-  @UseGuards(JwtAuthGuard)
+  @AuthWithRoles(Role.User)
   @Get('all-for-post/:postId')
   findByPostId(@Param('postId') postId: string): Promise<CommentResponse[]> {
     return this.commentService.findByPostId(postId);
   }
 
   @ApiBearerAuth()
-  @UseGuards(JwtAuthGuard)
+  @AuthWithRoles(Role.User)
   @Get('all')
   findAll(): Promise<CommentResponse[]> {
     return this.commentService.findAll();
   }
 
   @ApiBearerAuth()
-  @UseGuards(JwtAuthGuard)
+  @AuthWithRoles(Role.User)
   @Post(':postId')
   create(
     @Param('postId') postId: string,
@@ -60,7 +61,7 @@ export class CommentController {
   }
 
   @ApiBearerAuth()
-  @UseGuards(JwtAuthGuard)
+  @AuthWithRoles(Role.User)
   @Patch(':id')
   update(
     @Param('id') id: string,
@@ -75,7 +76,7 @@ export class CommentController {
   }
 
   @ApiBearerAuth()
-  @UseGuards(JwtAuthGuard)
+  @AuthWithRoles(Role.User)
   @Delete(':id')
   delete(
     @Param('id') id: string,

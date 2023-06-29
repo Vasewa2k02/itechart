@@ -3,17 +3,19 @@ import {
   Controller,
   Post,
   Req,
-  UseGuards,
   Delete,
   Param,
   Get,
 } from '@nestjs/common';
+
+import { Role } from 'src/common/constants/role.enum';
+
 import { BookmarkService } from './bookmark.service';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
-import { JwtAuthGuard } from '../auth/guard/jwt-auth.guard';
 import RequestWithUser from '../auth/interface/request-with-user.interface';
 import { CreateBookmarkDto } from './dto/create-bookmark.dto';
 import { BookmarkResponse } from './response/bookmark.response';
+import { AuthWithRoles } from 'src/common/decorators/auth-with-roles.decorator';
 
 @ApiTags('bookmark')
 @Controller('bookmark')
@@ -31,14 +33,14 @@ export class BookmarkController {
   }
 
   @ApiBearerAuth()
-  @UseGuards(JwtAuthGuard)
+  @AuthWithRoles(Role.User)
   @Get('all')
   findAll(): Promise<BookmarkResponse[]> {
     return this.bookmarkService.findAll();
   }
 
   @ApiBearerAuth()
-  @UseGuards(JwtAuthGuard)
+  @AuthWithRoles(Role.User)
   @Post()
   create(
     @Req() requestWithUser: RequestWithUser,
@@ -51,7 +53,7 @@ export class BookmarkController {
   }
 
   @ApiBearerAuth()
-  @UseGuards(JwtAuthGuard)
+  @AuthWithRoles(Role.User)
   @Delete(':id')
   delete(
     @Param('id') id: string,
