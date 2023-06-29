@@ -2,7 +2,7 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { SchemaTypes, HydratedDocument } from 'mongoose';
 import { ApiProperty } from '@nestjs/swagger';
 
-import { swaggerType } from 'src/helpers/swagger/utils';
+import { swaggerType } from 'helpers/swagger/utils';
 
 import { User } from '../modules/user/entities/user.entity';
 import { COLLECTION_NAMES } from './enums/collection-names.enum';

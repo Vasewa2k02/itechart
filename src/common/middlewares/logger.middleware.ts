@@ -2,9 +2,9 @@ import { Injectable, NestMiddleware } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { Response, NextFunction } from 'express';
 
-import RequestWithUser from 'src/modules/auth/interface/request-with-user.interface';
-import { WinstonLoggerService } from 'src/modules/winston-logger/winston-logger.service';
-import { APP_ENVIRONMENT } from 'src/modules/winston-logger/constants/params';
+import RequestWithUser from 'modules/auth/interface/request-with-user.interface';
+import { WinstonLoggerService } from 'modules/winston-logger/winston-logger.service';
+import { APP_ENVIRONMENT } from 'modules/winston-logger/constants/params';
 
 import { getRequestInformation } from '../constants/logger-info';
 

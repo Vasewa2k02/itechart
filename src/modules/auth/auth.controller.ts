@@ -9,7 +9,7 @@ import {
 } from '@nestjs/common';
 import { ApiOkResponse, ApiTags } from '@nestjs/swagger';
 
-import { swaggerType } from 'src/helpers/swagger/utils';
+import { swaggerType } from 'helpers/swagger/utils';
 
 import RequestWithUser from './interface/request-with-user.interface';
 import { AuthService } from './auth.service';

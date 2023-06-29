@@ -2,7 +2,7 @@ import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
 import { UnauthorizedException } from '@nestjs/common/exceptions';
 import { AuthGuard } from '@nestjs/passport';
 
-import { User } from 'src/modules/user/entities/user.entity';
+import { User } from 'modules/user/entities/user.entity';
 
 import { JWT } from '../constants/guard';
 

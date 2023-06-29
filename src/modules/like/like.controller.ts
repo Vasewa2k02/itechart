@@ -9,8 +9,8 @@ import {
 } from '@nestjs/common';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 
-import { AuthWithRoles } from 'src/common/decorators/auth-with-roles.decorator';
-import { Role } from 'src/common/constants/role.enum';
+import { AuthWithRoles } from 'common/decorators/auth-with-roles.decorator';
+import { Role } from 'common/constants/role.enum';
 
 import { LikeService } from './like.service';
 import RequestWithUser from '../auth/interface/request-with-user.interface';
@@ -35,7 +35,7 @@ export class LikeController {
   }
 
   @ApiBearerAuth()
-  @AuthWithRoles(Role.User)
+  @AuthWithRoles(Role.user)
   @Post()
   create(
     @Req() requestWithUser: RequestWithUser,
@@ -45,7 +45,7 @@ export class LikeController {
   }
 
   @ApiBearerAuth()
-  @AuthWithRoles(Role.User)
+  @AuthWithRoles(Role.user)
   @Delete(':id')
   delete(
     @Param('id') id: string,

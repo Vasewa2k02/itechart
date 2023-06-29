@@ -1,8 +1,8 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-import { User } from 'src/modules/user/entities/user.entity';
-import { Role } from 'src/entities/role.entity';
-import { swaggerType } from 'src/helpers/swagger/utils';
+import { User } from 'modules/user/entities/user.entity';
+import { Role } from 'entities/role.entity';
+import { swaggerType } from 'helpers/swagger/utils';
 
 export class UserResponse implements Pick<User, 'id' | 'email' | 'role'> {
   @ApiProperty()

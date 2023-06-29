@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-import { User } from 'src/modules/user/entities/user.entity';
-import { Post } from 'src/modules/post/entities/post.entity';
+import { User } from 'modules/user/entities/user.entity';
+import { Post } from 'modules/post/entities/post.entity';
 
 import { Bookmark } from '../entities/bookmark.entity';
 

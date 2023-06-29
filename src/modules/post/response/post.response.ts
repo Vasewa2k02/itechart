@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-import { Like } from 'src/modules/like/entities/like.entity';
-import { Comment } from 'src/modules/comment/entities/comment.entity';
+import { Like } from 'modules/like/entities/like.entity';
+import { Comment } from 'modules/comment/entities/comment.entity';
 
 import { Post } from '../entities/post.entity';
 

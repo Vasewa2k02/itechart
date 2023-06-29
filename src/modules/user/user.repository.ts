@@ -2,8 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 
-import { Role } from 'src/entities/role.entity';
-import { ROLE_FIELDS } from 'src/entities/types/role.type';
+import { Role } from 'entities/role.entity';
+import { ROLE_FIELDS } from 'entities/types/role.type';
 
 import { CreateUserDto } from './dto/create-user.dto';
 import { User } from './entities/user.entity';

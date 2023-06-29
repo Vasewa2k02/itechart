@@ -1,4 +1,4 @@
-import RequestWithUser from 'src/modules/auth/interface/request-with-user.interface';
+import RequestWithUser from 'modules/auth/interface/request-with-user.interface';
 
 export const DEV_APP_ENVIRONMENT = 'dev';
 export const QA_APP_ENVIRONMENT = 'qa';

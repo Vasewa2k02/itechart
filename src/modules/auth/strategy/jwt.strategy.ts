@@ -3,8 +3,8 @@ import { ConfigService } from '@nestjs/config';
 import { PassportStrategy } from '@nestjs/passport';
 import { Strategy, ExtractJwt } from 'passport-jwt';
 
-import { UserResponse } from 'src/modules/user/response/user.response';
-import { UserService } from 'src/modules/user/user.service';
+import { UserResponse } from 'modules/user/response/user.response';
+import { UserService } from 'modules/user/user.service';
 
 import { JWT_ACCESS_TOKEN_SECRET } from '../constants/params';
 import TokenPayload from '../interface/token-payload.interface';

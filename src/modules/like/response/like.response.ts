@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 
 import { ILike } from '../interfaces/like.interface';
-import { User } from 'src/modules/user/entities/user.entity';
+import { User } from 'modules/user/entities/user.entity';
 
 export class LikeResponse
   implements Pick<ILike, 'id' | 'likedEntityId' | 'author'>

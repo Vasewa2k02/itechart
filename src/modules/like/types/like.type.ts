@@ -1,4 +1,4 @@
-import { EntityFields } from 'src/common/types';
+import { EntityFields } from 'common/types';
 
 import { Like } from '../entities/like.entity';
 

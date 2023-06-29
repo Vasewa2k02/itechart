@@ -1,4 +1,4 @@
-import { EntityFields } from 'src/common/types';
+import { EntityFields } from 'common/types';
 
 import { Session } from '../entities/session.entity';
 

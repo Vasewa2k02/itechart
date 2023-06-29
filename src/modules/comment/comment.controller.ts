@@ -10,8 +10,8 @@ import {
 } from '@nestjs/common';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 
-import { AuthWithRoles } from 'src/common/decorators/auth-with-roles.decorator';
-import { Role } from 'src/common/constants/role.enum';
+import { AuthWithRoles } from 'common/decorators/auth-with-roles.decorator';
+import { Role } from 'common/constants/role.enum';
 
 import { CommentService } from './comment.service';
 import RequestWithUser from '../auth/interface/request-with-user.interface';
@@ -32,21 +32,21 @@ export class CommentController {
   }
 
   @ApiBearerAuth()
-  @AuthWithRoles(Role.User)
+  @AuthWithRoles(Role.user)
   @Get('all-for-post/:postId')
   findByPostId(@Param('postId') postId: string): Promise<CommentResponse[]> {
     return this.commentService.findByPostId(postId);
   }
 
   @ApiBearerAuth()
-  @AuthWithRoles(Role.User)
+  @AuthWithRoles(Role.user)
   @Get('all')
   findAll(): Promise<CommentResponse[]> {
     return this.commentService.findAll();
   }
 
   @ApiBearerAuth()
-  @AuthWithRoles(Role.User)
+  @AuthWithRoles(Role.user)
   @Post(':postId')
   create(
     @Param('postId') postId: string,
@@ -61,7 +61,7 @@ export class CommentController {
   }
 
   @ApiBearerAuth()
-  @AuthWithRoles(Role.User)
+  @AuthWithRoles(Role.user)
   @Patch(':id')
   update(
     @Param('id') id: string,
@@ -76,7 +76,7 @@ export class CommentController {
   }
 
   @ApiBearerAuth()
-  @AuthWithRoles(Role.User)
+  @AuthWithRoles(Role.user)
   @Delete(':id')
   delete(
     @Param('id') id: string,
