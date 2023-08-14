@@ -2,6 +2,8 @@ import './App.css';
 import React from 'react';
 
 function App(): JSX.Element {
+  console.log('Qwe');
+  const qwe;
   return (
     <div className='App'>
       <header className='App-header'>
