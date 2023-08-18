@@ -1,0 +1,17 @@
+export enum COLORS {
+  colorPrimary = '#4d4d00',
+  defaultElementHover = '#5062fd',
+  defaultElementActive = '#0b5ed7',
+  white = '#ffffff',
+  background = '#ffffff',
+  backgroundAdd = '#F0F4FF',
+  backgroundContent = '#F3F7FD',
+  backgroundHoverActive = '#f6f9ff',
+  text = '#77ba51',
+  textLight = '#899bbd',
+  profileName = '#2c384e',
+  hoverActiveLink = '#4154f1',
+  border = '#cddfff',
+  postBorder = '#ebeef4',
+  logo = '#4d4d00',
+}
