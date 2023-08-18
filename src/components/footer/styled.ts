@@ -1,17 +1,15 @@
-import { Layout } from 'antd';
+import { Footer } from 'antd/es/layout/layout';
 import styled from 'styled-components';
 
-import { COLORS } from '../../enums/colors.enum';
-import { COMMON_STYLES } from '../../enums/common-styles.enum';
-
-const StyledContent = styled(Layout.Content)({
-  minHeight: '280px',
-  margin: '20px',
-  borderRadius: COMMON_STYLES.borderRadius,
+const StyledFooter = styled(Footer)({
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
 });
 
-const StyledContentLayout = styled(Layout)({
-  backgroundColor: COLORS.backgroundContent,
+const StyledLogo = styled('img')({
+  width: '30px',
+  height: '30px',
 });
 
-export { StyledContent, StyledContentLayout };
+export { StyledFooter, StyledLogo };
