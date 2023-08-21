@@ -2,6 +2,9 @@
   "name": "front",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=14.21.2"
+  },
   "dependencies": {
     "@ant-design/icons": "^5.1.4",
     "@testing-library/jest-dom": "^5.16.5",
@@ -12,12 +15,14 @@
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
     "antd": "^5.8.3",
+    "gh-pages": "^5.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "styled-components": "^6.0.2",
     "web-vitals": "^2.1.4"
   },
+  "homepage": "https://Vasewa2k02.github.io/itechart",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -25,7 +30,9 @@
     "eject": "react-scripts eject",
     "lint-staged": "eslint --fix --ignore-path .gitignore .",
     "precommit": "npm run lint-staged",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
