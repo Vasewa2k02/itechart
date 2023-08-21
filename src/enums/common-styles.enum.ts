@@ -1,8 +1,7 @@
 export enum COMMON_STYLES {
   defaultFont = '"Open Sans", sans-serif',
   specialFont = '"Nunito", sans-serif',
-  shadow = '0px 0 30px rgba(1, 41, 112, 0.1)',
-  borderRadius = '5px',
+  borderRadius = '10px',
   fontSizeSmall = '14px',
   fontSizeMedium = '18px',
   fontSizeLarge = '26px',
@@ -10,7 +9,9 @@ export enum COMMON_STYLES {
   fontWeightMedium = '500',
   fontWeightLarge = '600',
   fontWeightBold = '700',
+  indentMicro = '5px',
   indentSmall = '10px',
   indentMedium = '20px',
   indentLarge = '40px',
+  buttonHeightSmall = '30px',
 }

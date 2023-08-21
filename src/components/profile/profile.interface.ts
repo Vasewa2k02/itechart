@@ -1,5 +1,5 @@
-import { AvatarProps } from '../avatar/avatar.interface';
+import { IAvatarProps } from '../avatar/avatar.interface';
 
-export interface ProfileProps {
-  avatarProps: AvatarProps;
+export interface IProfileProps {
+  avatarProps: IAvatarProps;
 }

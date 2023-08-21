@@ -1,9 +1,10 @@
 import { UserOutlined } from '@ant-design/icons';
 import { Avatar as DefaultAvatar } from 'antd';
+import { FC } from 'react';
 
-import { AvatarProps } from './avatar.interface';
+import { IAvatarProps } from './avatar.interface';
 
-const Avatar = ({ size }: AvatarProps) => (
+const Avatar: FC<IAvatarProps> = ({ size }) => (
   <DefaultAvatar size={size} icon={<UserOutlined />} />
 );
 

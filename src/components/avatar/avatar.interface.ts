@@ -1,3 +1,3 @@
-export interface AvatarProps {
+export interface IAvatarProps {
   size: number;
 }
