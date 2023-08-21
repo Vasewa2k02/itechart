@@ -17,7 +17,7 @@ const StyledLogo = styled('div')({
   alignItems: 'center',
   width: '280px',
   fontSize: COMMON_STYLES.fontSizeLarge,
-  fontWeight: COMMON_STYLES.fontWeightLarge,
+  fontWeight: COMMON_STYLES.fontWeightBold,
   fontFamily: COMMON_STYLES.specialFont,
   color: COLORS.logo,
   textAlign: 'center',

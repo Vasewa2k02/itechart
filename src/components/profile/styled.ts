@@ -1,11 +1,8 @@
-import { Layout, Menu } from 'antd';
-import Sider from 'antd/es/layout/Sider';
+import { Layout } from 'antd';
 import styled from 'styled-components';
 
 import { COLORS } from '../../enums/colors.enum';
 import { COMMON_STYLES } from '../../enums/common-styles.enum';
-
-const StyledSider = styled(Sider)({});
 
 const StyledProfileLayout = styled(Layout)({
   display: 'flex',
@@ -22,18 +19,4 @@ const StyledProfileName = styled('h3')({
   fontWeight: COMMON_STYLES.fontWeightLarge,
 });
 
-const StyledMenu = styled(Menu)({
-  padding: COMMON_STYLES.indentMedium,
-});
-
-const StyledMenuItem = styled(Menu.Item)({
-  fontWeight: COMMON_STYLES.fontWeightMedium,
-});
-
-export {
-  StyledSider,
-  StyledProfileLayout,
-  StyledMenu,
-  StyledMenuItem,
-  StyledProfileName,
-};
+export { StyledProfileLayout, StyledProfileName };

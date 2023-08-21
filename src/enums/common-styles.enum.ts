@@ -8,5 +8,9 @@ export enum COMMON_STYLES {
   fontSizeLarge = '26px',
   fontWeightSmall = '400',
   fontWeightMedium = '500',
-  fontWeightLarge = '700',
+  fontWeightLarge = '600',
+  fontWeightBold = '700',
+  indentSmall = '10px',
+  indentMedium = '20px',
+  indentLarge = '40px',
 }
