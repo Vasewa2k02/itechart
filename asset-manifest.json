@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/itechart/static/css/main.a5ed6ac3.css",
+    "main.js": "/itechart/static/js/main.a2761d83.js",
+    "static/media/logo.png": "/itechart/static/media/logo.c2d943a8648ccaafad09.png",
+    "index.html": "/itechart/index.html",
+    "main.a2761d83.js.map": "/itechart/static/js/main.a2761d83.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a5ed6ac3.css",
+    "static/js/main.a2761d83.js"
+  ]
+}
