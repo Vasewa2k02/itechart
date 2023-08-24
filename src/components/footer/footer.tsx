@@ -1,4 +1,5 @@
-import Logo from '../../assets/images/logo.png';
+import Logo from 'assets/images/logo.png';
+
 import { StyledFooter, StyledLogo } from './styled';
 
 const Footer = () => (

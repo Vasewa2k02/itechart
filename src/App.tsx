@@ -1,6 +1,6 @@
 import { ConfigProvider } from 'antd';
 
-import DefaultLayout from './components/default-layout/default-layout';
+import DefaultLayout from './components/DefaultLayout/DefaultLayout';
 import { themeConfig } from './config/theme.config';
 import { GlobalStyle } from './styled';
 import './styles.css';

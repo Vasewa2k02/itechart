@@ -1,8 +1,8 @@
 import { Layout } from 'antd';
 import styled from 'styled-components';
 
-import { COLORS } from '../../enums/colors.enum';
-import { COMMON_STYLES } from '../../enums/common-styles.enum';
+import { COLORS } from 'enums/colors.enum';
+import { COMMON_STYLES } from 'enums/common-styles.enum';
 
 const StyledProfileLayout = styled(Layout)({
   display: 'flex',

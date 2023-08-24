@@ -1,7 +1,8 @@
 import { Layout, Menu } from 'antd';
 import { FC } from 'react';
 
-import Logo from '../../assets/images/logo.png';
+import Logo from 'assets/images/logo.png';
+
 import { MENU_ITEMS, START_MENU_ITEM } from './constants';
 import { StyledHeader, StyledLogo, StyledMenuItem } from './styled';
 

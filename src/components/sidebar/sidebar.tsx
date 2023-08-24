@@ -1,6 +1,7 @@
 import { FC } from 'react';
 
-import Profile from '../profile/profile';
+import Profile from 'components/Profile/Profile';
+
 import {
   AVATAR_SIZE,
   MENU_ITEMS,

@@ -1,10 +1,10 @@
 import { FC } from 'react';
 
-import Post from './components/post/post';
+import Post from './components/Post/Post';
 import { IPostsProps } from './posts.interface';
 import { Container } from './styled';
 
-const Posts: FC<IPostsProps> = ({ posts }) => (
+const PostList: FC<IPostsProps> = ({ posts }) => (
   <Container>
     {posts.map((post) => (
       <Post key={post.id} post={post} />
@@ -12,4 +12,4 @@ const Posts: FC<IPostsProps> = ({ posts }) => (
   </Container>
 );
 
-export default Posts;
+export default PostList;

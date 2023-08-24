@@ -1,7 +1,8 @@
 import { HeartOutlined, StarOutlined } from '@ant-design/icons';
 import { FC } from 'react';
 
-import Avatar from '../../../avatar/avatar';
+import Avatar from 'components/Avatar/Avatar';
+
 import { AVATAR_SIZE } from './constants';
 import { IPostProps } from './post.interface';
 import {

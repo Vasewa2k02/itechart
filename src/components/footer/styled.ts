@@ -1,6 +1,7 @@
 import { Footer } from 'antd/es/layout/layout';
 import styled from 'styled-components';
-import { COLORS } from '../../enums/colors.enum';
+
+import { COLORS } from 'enums/colors.enum';
 
 const StyledFooter = styled(Footer)({
   display: 'flex',

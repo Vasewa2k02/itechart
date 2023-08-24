@@ -1,6 +1,7 @@
 import { FC } from 'react';
 
-import Avatar from '../avatar/avatar';
+import Avatar from 'components/Avatar/Avatar';
+
 import { IProfileProps } from './profile.interface';
 import { StyledProfileLayout, StyledProfileName } from './styled';
 
