@@ -1,24 +1,15 @@
-import './App.css';
-import React from 'react';
+import { ConfigProvider } from 'antd';
 
-function App(): JSX.Element {
-  return (
-    <div className='App'>
-      <header className='App-header'>
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className='App-link'
-          href='https://reactjs.org'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import DefaultLayout from './components/DefaultLayout/DefaultLayout';
+import { themeConfig } from './config/theme.config';
+import { GlobalStyle } from './styled';
+import './styles.css';
+
+const App = (): JSX.Element => (
+  <ConfigProvider theme={themeConfig}>
+    <GlobalStyle />
+    <DefaultLayout />
+  </ConfigProvider>
+);
 
 export default App;
